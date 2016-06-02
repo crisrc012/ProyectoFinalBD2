@@ -19,19 +19,25 @@ namespace Datos
             string contrasena = "";
             if (!mysql)
             {
-                cadenaConexion = "Data Source = " + servidor + @"\SQLEXPRESS; Initial Catalog = " + bd + "; User ID=" + usuario + ";Password=" + contrasena + ";";
+                cadenaConexion = "Data Source = " + servidor 
+                    + @"\SQLEXPRESS; Initial Catalog = " + bd 
+                    + "; User ID=" + usuario 
+                    + ";Password=" + contrasena + ";";
                 conexionMSSQL = new SqlConnection(cadenaConexion);
             }
             else
             {
-                cadenaConexion = "SERVER = " + servidor + ";" + "DATABASE = " + bd + ";" + "UID = " + usuario + ";" + "PASSWORD = " + contrasena + ";";
+                cadenaConexion = "SERVER = " + servidor + ";" 
+                    + "DATABASE = " + bd + ";"
+                    + "UID = " + usuario + ";" 
+                    + "PASSWORD = " + contrasena + ";";
                 conexionMySQL = new MySqlConnection(cadenaConexion);
             }
         }
 
         public SqlConnection getMSSQLConnection()
         {
-            if (!this.mysql)
+            if (!mysql)
             {
                 return conexionMSSQL;
             }
@@ -43,7 +49,7 @@ namespace Datos
 
         public MySqlConnection getMySQLConnection()
         {
-            if (this.mysql)
+            if (mysql)
             {
                 return conexionMySQL;
             }
