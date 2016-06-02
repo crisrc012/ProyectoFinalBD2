@@ -5,59 +5,40 @@ namespace Datos
 {
     public class Conexion
     {
-        private SqlConnection conexionMSSQL;
-        private MySqlConnection conexionMySQL;
+        private Conexiones c;
         private string cadenaConexion;
-        private bool mysql;
 
         public Conexion(bool mysql = false)
         {
-            this.mysql = mysql;
+            // Parametros de los servidores de base de datos
             string servidor = "localhost";
             string bd = "ProyectoFinal";
             string usuario = "";
             string contrasena = "";
+            c = new Conexiones();
+            // Conexion para SQL Server
             if (!mysql)
             {
                 cadenaConexion = "Data Source = " + servidor 
                     + @"\SQLEXPRESS; Initial Catalog = " + bd 
                     + "; User ID=" + usuario 
                     + ";Password=" + contrasena + ";";
-                conexionMSSQL = new SqlConnection(cadenaConexion);
+                c.conexionMSSQL = new SqlConnection(cadenaConexion);
             }
+            // Conexion para MySQL
             else
             {
                 cadenaConexion = "SERVER = " + servidor + ";" 
                     + "DATABASE = " + bd + ";"
                     + "UID = " + usuario + ";" 
                     + "PASSWORD = " + contrasena + ";";
-                conexionMySQL = new MySqlConnection(cadenaConexion);
+                c.conexionMySQL = new MySqlConnection(cadenaConexion);
             }
         }
 
-        public SqlConnection getMSSQLConnection()
+        public Conexiones getConexion()
         {
-            if (!mysql)
-            {
-                return conexionMSSQL;
-            }
-            else
-            {
-                return null;
-            }
-        }
-
-        public MySqlConnection getMySQLConnection()
-        {
-            if (mysql)
-            {
-                return conexionMySQL;
-            }
-            else
-            {
-                return null;
-            }
-            
+            return c;
         }
     }
 }
