@@ -80,6 +80,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Entidades\Entidades.csproj">
+      <Project>{af924e85-e138-4fc7-b32d-c92f22a76cfc}</Project>
+      <Name>Entidades</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Logica\Logica.csproj">
       <Project>{24d42174-3cda-46f9-bf10-b4876efd1336}</Project>
       <Name>Logica</Name>
