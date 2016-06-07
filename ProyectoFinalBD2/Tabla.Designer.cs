@@ -37,7 +37,7 @@
             this.dGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dGV.Location = new System.Drawing.Point(3, 3);
             this.dGV.Name = "dGV";
-            this.dGV.Size = new System.Drawing.Size(327, 254);
+            this.dGV.Size = new System.Drawing.Size(251, 204);
             this.dGV.TabIndex = 0;
             // 
             // Tabla
@@ -46,7 +46,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.dGV);
             this.Name = "Tabla";
-            this.Size = new System.Drawing.Size(333, 260);
+            this.Size = new System.Drawing.Size(257, 210);
             this.Load += new System.EventHandler(this.Tabla_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dGV)).EndInit();
             this.ResumeLayout(false);
