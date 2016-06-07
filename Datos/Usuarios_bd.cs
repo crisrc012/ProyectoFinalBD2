@@ -33,10 +33,8 @@ namespace Datos
             return datos;
         }
 
-        public void Insert(Usuarios u)
+        private void insert_update(string sql, Usuarios u)
         {
-            string sql = "insert into usuarios (id_usuarios,nombre,apellido1,apellido2) "
-                    + "values(@id_usuarios, @nombre, @apellido1, @apellido2);";
             if (c.getConexion().conexionMSSQL != null)
             {
                 c.getConexion().conexionMSSQL.Open();
@@ -85,9 +83,19 @@ namespace Datos
             }
         }
 
+        public void Insert(Usuarios u)
+        {
+            string sql = "insert into usuarios (id_usuarios,nombre,apellido1,apellido2) "
+                    + "values(@id_usuarios, @nombre, @apellido1, @apellido2);";
+            insert_update(sql, u);
+        }
+
         public void Update(Usuarios u)
         {
-
+            string sql = "update usuarios set "
+                + "nombre = @nombre, apellido1 = @apellido1, apellido2 = @apellido2"
+                + "where id_usuarios = @id_usuarios;";
+            insert_update(sql, u);
         }
 
         public void Delete(int id)
