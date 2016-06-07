@@ -9,9 +9,9 @@ namespace Datos
     {
         private Conexion c;
 
-        public Usuarios_bd()
+        public Usuarios_bd(bool mysql = false)
         {
-            c = new Conexion();
+            c = new Conexion(mysql);
         }
 
         public DataTable Select()

@@ -14,5 +14,12 @@ namespace ProyectoFinalBD2
         {
 
         }
+
+        private void bntObtUsuarios_Click(object sender, EventArgs e)
+        {
+            panel.Controls.Clear();
+            panel.Controls.Add(new Tabla());
+            panel.Update();
+        }
     }
 }
