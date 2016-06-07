@@ -100,7 +100,47 @@ namespace Datos
 
         public void Delete(int id)
         {
-
+            string sql = "delete usuarios where id_usuarios = @id_usuarios;";
+            if (c.getConexion().conexionMSSQL != null)
+            {
+                c.getConexion().conexionMSSQL.Open();
+                SqlCommand cmd = new SqlCommand(null, c.getConexion().conexionMSSQL);
+                cmd.CommandText = sql;
+                cmd.Parameters.Add("@id_usuarios", SqlDbType.Int).Value = id;
+                cmd.Prepare();
+                try
+                {
+                    cmd.ExecuteNonQuery();
+                }
+                catch (SqlException ex)
+                {
+                    System.Console.Write(ex.Message);
+                }
+                finally
+                {
+                    c.getConexion().conexionMSSQL.Close();
+                }
+            }
+            else
+            {
+                c.getConexion().conexionMySQL.Open();
+                MySqlCommand cmd = new MySqlCommand(null, c.getConexion().conexionMySQL);
+                cmd.CommandText = sql;
+                cmd.Parameters.AddWithValue("@id_usuarios", SqlDbType.Int).Value = id;
+                cmd.Prepare();
+                try
+                {
+                    cmd.ExecuteNonQuery();
+                }
+                catch (MySqlException ex)
+                {
+                    System.Console.Write(ex.Message);
+                }
+                finally
+                {
+                    c.getConexion().conexionMySQL.Close();
+                }
+            }
         }
     }
 }
