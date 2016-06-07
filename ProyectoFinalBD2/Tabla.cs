@@ -13,14 +13,17 @@ namespace ProyectoFinalBD2
 {
     public partial class Tabla : UserControl
     {
-        public Tabla()
+        private bool mysql;
+
+        public Tabla(bool mysql = false)
         {
             InitializeComponent();
+            this.mysql = mysql;
         }
 
         private void Tabla_Load(object sender, EventArgs e)
         {
-            Usuarios_lg ulg = new Usuarios_lg();
+            Usuarios_lg ulg = new Usuarios_lg(mysql);
             dGV.DataSource = ulg.Select();
         }
     }

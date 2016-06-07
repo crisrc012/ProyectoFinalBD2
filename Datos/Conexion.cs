@@ -11,10 +11,10 @@ namespace Datos
         public Conexion(bool mysql = false)
         {
             // Parametros de los servidores de base de datos
-            string servidor = "localhost";
-            string bd = "ProyectoFinal";
-            string usuario = "";
-            string contrasena = "";
+            string servidor = "127.0.0.1";
+            string bd = "proyectofinal";
+            string usuario = "root";
+            string contrasena = "Abc12345";
             c = new Conexiones();
             // Conexion para SQL Server
             if (!mysql)
@@ -31,7 +31,7 @@ namespace Datos
                 cadenaConexion = "SERVER = " + servidor + ";" 
                     + "DATABASE = " + bd + ";"
                     + "UID = " + usuario + ";" 
-                    + "PASSWORD = " + contrasena + ";";
+                    + "PASSWORD = " + contrasena + ";port=3306;charset=utf8";
                 c.conexionMySQL = new MySqlConnection(cadenaConexion);
             }
         }

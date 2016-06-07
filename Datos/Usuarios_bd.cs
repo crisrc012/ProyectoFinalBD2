@@ -8,9 +8,11 @@ namespace Datos
     public class Usuarios_bd
     {
         private Conexion c;
+        bool mysql;
 
         public Usuarios_bd(bool mysql = false)
         {
+            this.mysql = mysql;
             c = new Conexion(mysql);
         }
 
@@ -18,7 +20,7 @@ namespace Datos
         {
             string sql = "select id_usuarios,nombre,apellido1,apellido2 from usuarios;";
             DataTable datos = new DataTable();
-            if (c.getConexion().conexionMSSQL != null)
+            if (!mysql)
             {
                 SqlCommand cmd = new SqlCommand(sql, c.getConexion().conexionMSSQL);
                 SqlDataAdapter adapter = new SqlDataAdapter(cmd);
@@ -35,7 +37,7 @@ namespace Datos
 
         private void insert_update(string sql, Usuarios u)
         {
-            if (c.getConexion().conexionMSSQL != null)
+            if (!mysql)
             {
                 c.getConexion().conexionMSSQL.Open();
                 SqlCommand cmd = new SqlCommand(null, c.getConexion().conexionMSSQL);
@@ -101,7 +103,7 @@ namespace Datos
         public void Delete(int id)
         {
             string sql = "delete usuarios where id_usuarios = @id_usuarios;";
-            if (c.getConexion().conexionMSSQL != null)
+            if (!mysql)
             {
                 c.getConexion().conexionMSSQL.Open();
                 SqlCommand cmd = new SqlCommand(null, c.getConexion().conexionMSSQL);
