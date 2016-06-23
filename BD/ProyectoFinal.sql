@@ -1,3 +1,4 @@
+--DROP DATABASE proyectofinal;
 create database proyectofinal;
 
 use ProyectoFinal;
@@ -19,7 +20,7 @@ create table persona(
 	apellido2 varchar(50),
 	activo bit,
 	fecha_nacimiento date,
-	constraint PK_id_persona PRIMARY KEY(id_persona)
+	constraint PK_Pcedula PRIMARY KEY(cedula)
 
 );
 
@@ -29,7 +30,7 @@ create table direccion(
 	descripcion varchar(200),
 	ciudad varchar(30),
 	constraint PK_id_direccion PRIMARY KEY(id_direccion),
-	constraint FK_Dcedula FOREING KEY (cedula) 
+	constraint FK_Dcedula FOREIGN KEY (cedula) 
 	REFERENCES persona(cedula)
 
 );
@@ -39,7 +40,7 @@ create table correo(
 	cedula integer,
 	direccion varchar(50),
 	constraint PK_id_correo PRIMARY KEY(id_correo),
-	constraint FK_Ccedula FOREING KEY (cedula) 
+	constraint FK_Ccedula FOREIGN KEY (cedula) 
 	REFERENCES persona(cedula)
 
 );
@@ -50,7 +51,7 @@ create table telefono(
 	cedula integer,
 	descripcion varchar(200),
 	constraint PK_id_telefono PRIMARY KEY(id_telefono),
-	constraint FK_Tcedula FOREING KEY (cedula) 
+	constraint FK_Tcedula FOREIGN KEY (cedula) 
 	REFERENCES persona(cedula)
 
 );
@@ -59,7 +60,7 @@ create table cliente(
 	id_cliente integer,
 	cedula integer,
 	constraint PK_id_cliente PRIMARY KEY(id_cliente),
-	constraint FK_cedula FOREING KEY (cedula) 
+	constraint FK_cedula FOREIGN KEY (cedula) 
 	REFERENCES persona(cedula)
 );
 
@@ -77,9 +78,9 @@ create table proveedor(
 	id_compania integer,
 	cargo varchar(30),
 	constraint PK_id_proveedor PRIMARY KEY(id_proveedor),
-	constraint FK_Pcedula FOREING KEY (cedula) 
+	constraint FK_Pcedula FOREIGN KEY (cedula) 
 	REFERENCES persona(cedula),
-	constraint FK_idcompania FOREING KEY (id_compania) 
+	constraint FK_idcompania FOREIGN KEY (id_compania) 
 	REFERENCES compania(id_compania)
 
 );
@@ -90,7 +91,7 @@ create table vendedor(
 	salario integer,
 	fecha_Contrato date,
 	constraint PK_id_vendedor PRIMARY KEY(id_vendedor),
-	constraint FK_Vcedula FOREING KEY (cedula) 
+	constraint FK_Vcedula FOREIGN KEY (cedula) 
 	REFERENCES persona(cedula)
 
 );
@@ -104,9 +105,9 @@ create table factura(
 	impuesto integer,
 	total integer,
 	constraint PK_id_factura PRIMARY KEY(id_factura),
-	constraint FK_Fcedula FOREING KEY (cedula) 
+	constraint FK_Fcedula FOREIGN KEY (id_cliente) 
 	REFERENCES persona(cedula),
-	constraint FK_idvendedor FOREING KEY (id_vendedor) 
+	constraint FK_idvendedor FOREIGN KEY (id_vendedor) 
 	REFERENCES vendedor(id_vendedor)
 
 );
@@ -118,7 +119,7 @@ create table producto(
 	cantidad integer,
 	precio integer,
 	constraint PK_id_producto PRIMARY KEY(id_producto),
-	constraint FK_idproveedor FOREING KEY (id_proveedor) 
+	constraint FK_idproveedor FOREIGN KEY (id_proveedor) 
 	REFERENCES proveedor(id_proveedor)
 
 );
@@ -126,12 +127,11 @@ create table producto(
 create table detalle(
 	id_factura integer,
 	id_producto integer,
-	nombre varchar(20),
 	cantidad integer,
 	descuento integer,
-	constraint FK_idfactura FOREING KEY (id_factura) 
-	REFERENCES factura(idc_factura),
-	constraint FK_idproducto FOREING KEY (id_producto) 
+	constraint FK_idfactura FOREIGN KEY (id_factura) 
+	REFERENCES factura(id_factura),
+	constraint FK_idproducto FOREIGN KEY (id_producto) 
 	REFERENCES producto(id_producto)
 );
 
@@ -140,7 +140,7 @@ create table bitacora (
 	id_usuario integer,
 	conexion bit,
 	constraint PK_id_bitacora PRIMARY KEY(id),
-	constraint FK_idusuario FOREING KEY (id_usuario) 
+	constraint FK_idusuario FOREIGN KEY (id_usuario) 
 	REFERENCES usuarios(id_usuarios)
 
 );
@@ -150,7 +150,7 @@ CREATE LOGIN user1
 WITH PASSWORD = 'Abc_1234'
 ,DEFAULT_DATABASE = [proyectofinal]
 ,DEFAULT_LANGUAGE = [us_english]
-CHECK_EXPIRATION = OFF,
+,CHECK_EXPIRATION = OFF,
 CHECK_POLICY = OFF;
 
 USE proyectofinal;
@@ -160,10 +160,10 @@ FOR LOGIN user1
 WITH DEFAULT_SCHEMA = [user1];
 
 GRANT SELECT ON usuarios 
-TO root;
+TO user1;
 
 --MySQL
-CREATE USER 'user1'@'localhost'
+CREATE USER 'user1' @ 'localhost'
 IDENTIFIED BY 'Abc_1234';
 GRANT SELECT ON proyectofinal.usuarios
-TO root;
+TO user1
