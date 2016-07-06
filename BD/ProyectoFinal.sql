@@ -5,23 +5,32 @@ use ProyectoFinal;
 
 -- alter authorization on database::ProyectoFinal to sa
 
-create table usuarios(
-	id_usuarios integer,
-	nombre varchar(20),
-	apellido1 varchar(50),
-	apellido2 varchar(50),
-	constraint PK_id_usuarios PRIMARY KEY(id_usuarios)
-);
-
 create table persona(
 	cedula integer,
 	nombre varchar(20),
 	apellido1 varchar(50),
 	apellido2 varchar(50),
 	activo bit,
-	fecha_nacimiento date,
 	constraint PK_Pcedula PRIMARY KEY(cedula)
 
+);
+create table rol (
+	id_rol int,
+	descripcion varchar(50),
+	constraint PK_rol PRIMARY KEY(id_rol)
+);
+
+create table usuarios(
+	id_usuarios integer,
+	cedula integer,
+	id_rol int,
+	username varchar(10),
+	contraseña varchar(15),
+	constraint PK_id_usuarios PRIMARY KEY(id_usuarios),
+	constraint FK_Ucedula FOREIGN KEY (cedula) 
+	REFERENCES persona(cedula),
+	constraint FK_Urol FOREIGN KEY (id_rol) 
+	REFERENCES rol(id_rol)
 );
 
 create table direccion(
