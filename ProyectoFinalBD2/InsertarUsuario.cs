@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 
 namespace ProyectoFinalBD2
 {
@@ -50,18 +51,40 @@ namespace ProyectoFinalBD2
                     nuevo.id_usuarios = Int32.Parse(txtIdUsuario.Text);
                     nuevo.username = txtUsername.Text;
                     usersbd.Insert(nuevo);
+                }else
+                {
+                    MessageBox.Show(this,
+                    "No existe nunguna persona con ese numero de cedula",
+                    "Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
                 }
         
 
             } else
             {
-
+                string query = "Select * from Persona where Cedula='" + txtCedula + "'";
+                MySqlCommand cmd = new MySqlCommand(query,c.getConexion().conexionMySQL);
+                MySqlDataReader dtr = cmd.ExecuteReader();
+                if (dtr.HasRows)
+                {
+                    Usuarios nuevo = new Usuarios();
+                    nuevo.cedula = Int32.Parse(txtCedula.Text);
+                    nuevo.contraseña = txtContrasena.Text;
+                    nuevo.id_rol = 1;
+                    nuevo.id_usuarios = Int32.Parse(txtIdUsuario.Text);
+                    nuevo.username = txtUsername.Text;
+                    usersbd.Insert(nuevo);
+                }
+                else
+                {
+                    MessageBox.Show(this,
+                    "No existe nunguna persona con ese numero de cedula",
+                    "Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+                }
             }
-            
-
-
-
-
         }
     }
 }
