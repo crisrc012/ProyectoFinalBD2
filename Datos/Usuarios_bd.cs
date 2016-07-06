@@ -18,7 +18,10 @@ namespace Datos
 
         public DataTable Select()
         {
-            string sql = "select id_usuarios,nombre,apellido1,apellido2 from usuarios;";
+            string sql = "select U.id_usuarios, U.cedula , U.username, U.id_rol, P.nombre, P.apellido1, P.apellido2" +
+                         "from usuarios U"+
+                         "inner join persona P"+
+                         "on U.cedula = P.cedula;";
             DataTable datos = new DataTable();
             if (!mysql)
             {
@@ -43,9 +46,10 @@ namespace Datos
                 SqlCommand cmd = new SqlCommand(null, c.getConexion().conexionMSSQL);
                 cmd.CommandText = sql;
                 cmd.Parameters.Add("@id_usuarios", SqlDbType.Int).Value = u.id_usuarios;
-                cmd.Parameters.Add("@nombre", SqlDbType.VarChar).Value = u.nombre;
-                cmd.Parameters.Add("@apellido1", SqlDbType.VarChar).Value = u.apellido1;
-                cmd.Parameters.Add("@apellido2", SqlDbType.VarChar).Value = u.apellido2;
+                cmd.Parameters.Add("@cedula", SqlDbType.Int).Value = u.cedula;
+                cmd.Parameters.Add("@id_rol", SqlDbType.Int).Value = u.id_rol;
+                cmd.Parameters.Add("@username", SqlDbType.VarChar).Value = u.username;
+                cmd.Parameters.Add("@contraseña", SqlDbType.VarChar).Value = u.contraseña;
                 cmd.Prepare();
                 try
                 {
@@ -66,9 +70,10 @@ namespace Datos
                 MySqlCommand cmd = new MySqlCommand(null, c.getConexion().conexionMySQL);
                 cmd.CommandText = sql;
                 cmd.Parameters.AddWithValue("@id_usuarios", SqlDbType.Int).Value = u.id_usuarios;
-                cmd.Parameters.AddWithValue("@nombre", SqlDbType.VarChar).Value = u.nombre;
-                cmd.Parameters.AddWithValue("@apellido1", SqlDbType.VarChar).Value = u.apellido1;
-                cmd.Parameters.AddWithValue("@apellido2", SqlDbType.VarChar).Value = u.apellido2;
+                cmd.Parameters.AddWithValue("@cedula", SqlDbType.Int).Value = u.cedula;
+                cmd.Parameters.AddWithValue("@id_rol", SqlDbType.Int).Value = u.id_rol;
+                cmd.Parameters.AddWithValue("@username", SqlDbType.VarChar).Value = u.username;
+                cmd.Parameters.AddWithValue("@contraseña", SqlDbType.VarChar).Value = u.contraseña;
                 cmd.Prepare();
                 try
                 {
@@ -87,15 +92,15 @@ namespace Datos
 
         public void Insert(Usuarios u)
         {
-            string sql = "insert into usuarios (id_usuarios,nombre,apellido1,apellido2) "
-                    + "values(@id_usuarios, @nombre, @apellido1, @apellido2);";
+            string sql = "insert into usuarios (id_usuarios,cedula,id_rol,username,contraseña) "
+                    + "values(@id_usuarios, @cedula, @id_rol, @username, @contraseña);";
             insert_update(sql, u);
         }
 
         public void Update(Usuarios u)
         {
             string sql = "update usuarios set "
-                + "nombre = @nombre, apellido1 = @apellido1, apellido2 = @apellido2"
+                + "username = @username, contraseña = @contraseña"
                 + "where id_usuarios = @id_usuarios;";
             insert_update(sql, u);
         }

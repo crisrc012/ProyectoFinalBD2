@@ -19,10 +19,11 @@ namespace Datos
             // Conexion para SQL Server
             if (!mysql)
             {
-                cadenaConexion = "Data Source = " + servidor 
-                    + @"\SQLEXPRESS; Initial Catalog = " + bd 
-                    + "; User ID=" + usuario 
-                    + ";Password=" + contrasena + ";";
+                cadenaConexion =
+                  @"Data Source =" + servidor + ";"
+                    + "Initial Catalog =" + bd + ";"
+                    + "User ID =" + usuario + ";"
+                    + "Password =" + contrasena + ";";
                 c.conexionMSSQL = new SqlConnection(cadenaConexion);
             }
             // Conexion para MySQL
