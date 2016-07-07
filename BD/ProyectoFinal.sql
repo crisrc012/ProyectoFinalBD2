@@ -154,6 +154,16 @@ create table bitacora (
 
 );
 
+create table bitac_cliente (
+	codigo int identity,	
+	id_cliente integer,
+	evento varchar(10),
+	fecha datetime,
+	usuario varchar(20),
+	servidor varchar(20)
+
+);
+
 --Creación de usuario SQL
 CREATE LOGIN user1
 WITH PASSWORD = 'Abc_1234'
