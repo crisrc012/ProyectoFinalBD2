@@ -15,13 +15,13 @@ create table persona(
 
 );
 create table rol (
-	id_rol int,
+	id_rol int identity(1,1),
 	descripcion varchar(50),
 	constraint PK_rol PRIMARY KEY(id_rol)
 );
 
 create table usuarios(
-	id_usuarios integer,
+	id_usuarios integer identity(1,1),
 	cedula integer,
 	id_rol int,
 	username varchar(10),
@@ -34,7 +34,7 @@ create table usuarios(
 );
 
 create table direccion(
-	id_direccion integer,
+	id_direccion integer identity(1,1),
 	cedula integer,
 	descripcion varchar(200),
 	ciudad varchar(30),
@@ -45,7 +45,7 @@ create table direccion(
 );
 
 create table correo(
-	id_correo integer,
+	id_correo integer identity(1,1),
 	cedula integer,
 	direccion varchar(50),
 	constraint PK_id_correo PRIMARY KEY(id_correo),
@@ -55,7 +55,7 @@ create table correo(
 );
 
 create table telefono(
-	id_telefono integer,
+	id_telefono integer identity(1,1),
 	numero integer,
 	cedula integer,
 	descripcion varchar(200),
@@ -66,7 +66,7 @@ create table telefono(
 );
 
 create table cliente(
-	id_cliente integer,
+	id_cliente integer identity(1,1),
 	cedula integer,
 	constraint PK_id_cliente PRIMARY KEY(id_cliente),
 	constraint FK_cedula FOREIGN KEY (cedula) 
@@ -74,7 +74,7 @@ create table cliente(
 );
 
 create table compania(
-	id_compania integer,
+	id_compania integer identity(1,1),
 	nombre varchar(30),
 	pais varchar(30),
 	constraint PK_id_compania PRIMARY KEY(id_compania)
@@ -82,7 +82,7 @@ create table compania(
 );
 
 create table proveedor(
-	id_proveedor integer,
+	id_proveedor integer identity(1,1),
 	cedula integer,
 	id_compania integer,
 	cargo varchar(30),
@@ -95,7 +95,7 @@ create table proveedor(
 );
 
 create table vendedor(
-	id_vendedor integer,
+	id_vendedor integer identity(1,1),
 	cedula integer,
 	salario integer,
 	fecha_Contrato date,
@@ -106,7 +106,7 @@ create table vendedor(
 );
 
 create table factura(
-	id_factura integer,
+	id_factura integer identity(1,1),
 	id_cliente integer,
 	id_vendedor integer,
 	fecha date,
@@ -122,7 +122,7 @@ create table factura(
 );
 
 create table producto(
-	id_producto integer,
+	id_producto integer identity(1,1),
 	id_proveedor integer,
 	nombre varchar(20),
 	cantidad integer,
@@ -145,7 +145,7 @@ create table detalle(
 );
 
 create table bitacora (
-	id integer,
+	id integer identity(1,1),
 	id_usuario integer,
 	conexion bit,
 	constraint PK_id_bitacora PRIMARY KEY(id),
@@ -155,13 +155,12 @@ create table bitacora (
 );
 
 create table bitac_cliente (
-	codigo int identity,	
+	codigo int identity(1,1),	
 	id_cliente integer,
 	evento varchar(10),
 	fecha datetime,
 	usuario varchar(20),
-	servidor varchar(20)
-
+	constraint PK_cod_bitacora PRIMARY KEY(codigo)
 );
 
 --Creación de usuario SQL
@@ -180,9 +179,3 @@ WITH DEFAULT_SCHEMA = [user1];
 
 GRANT SELECT ON usuarios 
 TO user1;
-
---MySQL
-CREATE USER 'user1' @ 'localhost'
-IDENTIFIED BY 'Abc_1234';
-GRANT SELECT ON proyectofinal.usuarios
-TO user1
