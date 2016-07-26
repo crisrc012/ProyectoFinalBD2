@@ -16,5 +16,15 @@ namespace ProyectoFinalBD2
         {
             InitializeComponent();
         }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
