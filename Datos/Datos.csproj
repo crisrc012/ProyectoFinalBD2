@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Clientes_bd.cs" />
     <Compile Include="Conexion.cs" />
     <Compile Include="Conexiones.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
