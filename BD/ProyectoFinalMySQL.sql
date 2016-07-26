@@ -164,7 +164,11 @@ create table bitac_cliente (
 );
 
 -- MySQL user
+<<<<<<< HEAD
 CREATE USER 'user1'@'localhost'
+=======
+CREATE USER user1
+>>>>>>> origin/master
 IDENTIFIED BY 'Abc1234';
 GRANT SELECT ON proyectofinal.usuarios
 TO 'user1'@'localhost';
