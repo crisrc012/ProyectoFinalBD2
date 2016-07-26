@@ -179,3 +179,5 @@ WITH DEFAULT_SCHEMA = [user1];
 
 GRANT SELECT ON usuarios 
 TO user1;
+GRANT SELECT ON persona
+TO user1;

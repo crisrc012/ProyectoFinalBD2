@@ -164,7 +164,9 @@ create table bitac_cliente (
 );
 
 -- MySQL user
-CREATE USER user1
-IDENTIFIED BY 'Abc_1234';
+CREATE USER 'user1'@'localhost'
+IDENTIFIED BY 'Abc1234';
 GRANT SELECT ON proyectofinal.usuarios
+TO 'user1'@'localhost';
+GRANT SELECT ON proyectofinal.persona
 TO 'user1'@'localhost';
