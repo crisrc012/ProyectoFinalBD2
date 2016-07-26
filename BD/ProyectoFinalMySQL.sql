@@ -3,17 +3,16 @@ create database proyectofinal;
 
 use ProyectoFinal;
 
--- alter authorization on database::ProyectoFinal to sa
-
 create table persona(
 	cedula integer,
 	nombre varchar(20),
 	apellido1 varchar(50),
 	apellido2 varchar(50),
 	activo bit,
-	constraint PK_Pcedula PRIMARY KEY(cedula)
-
+	constraint FK_Pcedula FOREIGN KEY(cedula)
+	REFERENCES PADRON_COMPLETO(Cedula)
 );
+
 create table rol (
 	id_rol int auto_increment,
 	descripcion varchar(50),
@@ -41,7 +40,6 @@ create table direccion(
 	constraint PK_id_direccion PRIMARY KEY(id_direccion),
 	constraint FK_Dcedula FOREIGN KEY (cedula) 
 	REFERENCES persona(cedula)
-
 );
 
 create table correo(
@@ -51,7 +49,6 @@ create table correo(
 	constraint PK_id_correo PRIMARY KEY(id_correo),
 	constraint FK_Ccedula FOREIGN KEY (cedula) 
 	REFERENCES persona(cedula)
-
 );
 
 create table telefono(
@@ -62,7 +59,6 @@ create table telefono(
 	constraint PK_id_telefono PRIMARY KEY(id_telefono),
 	constraint FK_Tcedula FOREIGN KEY (cedula) 
 	REFERENCES persona(cedula)
-
 );
 
 create table cliente(
@@ -78,7 +74,6 @@ create table compania(
 	nombre varchar(30),
 	pais varchar(30),
 	constraint PK_id_compania PRIMARY KEY(id_compania)
-
 );
 
 create table proveedor(
@@ -91,7 +86,6 @@ create table proveedor(
 	REFERENCES persona(cedula),
 	constraint FK_idcompania FOREIGN KEY (id_compania) 
 	REFERENCES compania(id_compania)
-
 );
 
 create table vendedor(
@@ -118,7 +112,6 @@ create table factura(
 	REFERENCES persona(cedula),
 	constraint FK_idvendedor FOREIGN KEY (id_vendedor) 
 	REFERENCES vendedor(id_vendedor)
-
 );
 
 create table producto(
@@ -128,9 +121,8 @@ create table producto(
 	cantidad integer,
 	precio integer,
 	constraint PK_id_producto PRIMARY KEY(id_producto),
-	constraint FK_idproveedor FOREIGN KEY (id_proveedor) 
+	constraint FK_idproveedor FOREIGN KEY (id_proveedor)
 	REFERENCES proveedor(id_proveedor)
-
 );
 
 create table detalle(
@@ -138,9 +130,9 @@ create table detalle(
 	id_producto integer,
 	cantidad integer,
 	descuento integer,
-	constraint FK_idfactura FOREIGN KEY (id_factura) 
+	constraint FK_idfactura FOREIGN KEY (id_factura)
 	REFERENCES factura(id_factura),
-	constraint FK_idproducto FOREIGN KEY (id_producto) 
+	constraint FK_idproducto FOREIGN KEY (id_producto)
 	REFERENCES producto(id_producto)
 );
 
@@ -149,13 +141,12 @@ create table bitacora (
 	id_usuario integer,
 	conexion bit,
 	constraint PK_id_bitacora PRIMARY KEY(id),
-	constraint FK_idusuario FOREIGN KEY (id_usuario) 
+	constraint FK_idusuario FOREIGN KEY (id_usuario)
 	REFERENCES usuarios(id_usuarios)
-
 );
 
 create table bitac_cliente (
-	codigo int auto_increment,	
+	codigo int auto_increment,
 	id_cliente integer,
 	evento varchar(10),
 	fecha datetime,
