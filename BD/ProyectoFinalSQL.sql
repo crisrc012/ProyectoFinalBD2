@@ -1,34 +1,34 @@
 --DROP DATABASE proyectofinal;
-create database proyectofinal;
+CREATE DATABASE [ProyectoFinal]
 
-use ProyectoFinal;
+USE ProyectoFinal;
 
 -- alter authorization on database::ProyectoFinal to sa
 
 -- Se edita la columna para no permita nulos para que pueda ser llave primaria
 ALTER TABLE PADRON_COMPLETO
-ALTER COLUMN Cedula VARCHAR(9) NOT NULL;
+ALTER COLUMN Cedula INTEGER NOT NULL;
 
 -- Se hace la columna llave primaria
 ALTER TABLE PADRON_COMPLETO
 ADD CONSTRAINT PK_Cedula PRIMARY KEY(Cedula);
 
 create table persona(
-	cedula varchar(9),
+	cedula integer,
 	activo bit,
 	constraint FK_cedula FOREIGN KEY(cedula)
 	REFERENCES PADRON_COMPLETO(Cedula),
 );
 
 create table rol (
-	id_rol int identity(1,1),
+	id_rol integer identity(1,1),
 	descripcion varchar(50),
 	constraint PK_rol PRIMARY KEY(id_rol)
 );
 
 create table usuarios(
 	id_usuarios integer identity(1,1),
-	cedula varchar(9),
+	cedula integer,
 	id_rol integer,
 	username varchar(10),
 	contraseña varchar(15),
@@ -41,7 +41,7 @@ create table usuarios(
 
 create table direccion(
 	id_direccion integer identity(1,1),
-	cedula varchar(9),
+	cedula integer,
 	descripcion varchar(200),
 	ciudad varchar(30),
 	constraint PK_id_direccion PRIMARY KEY(id_direccion),
@@ -51,7 +51,7 @@ create table direccion(
 
 create table correo(
 	id_correo integer identity(1,1),
-	cedula varchar(9),
+	cedula integer,
 	direccion varchar(50),
 	constraint PK_id_correo PRIMARY KEY(id_correo),
 	constraint FK_id_cpersona FOREIGN KEY(cedula)
@@ -61,7 +61,7 @@ create table correo(
 create table telefono(
 	id_telefono integer identity(1,1),
 	numero integer,
-	cedula varchar(9),
+	cedula integer,
 	descripcion varchar(200),
 	constraint PK_id_telefono PRIMARY KEY(id_telefono),
 	constraint FK_tid_persona FOREIGN KEY(cedula)
@@ -70,7 +70,7 @@ create table telefono(
 
 create table cliente(
 	id_cliente integer identity(1,1),
-	cedula varchar(9),
+	cedula integer,
 	constraint PK_id_cliente PRIMARY KEY(id_cliente),
 	constraint FK_clid_persona FOREIGN KEY(cedula)
 	REFERENCES PADRON_COMPLETO(Cedula),
@@ -85,7 +85,7 @@ create table compania(
 
 create table proveedor(
 	id_proveedor integer identity(1,1),
-	cedula varchar(9),
+	cedula integer,
 	id_compania integer,
 	cargo varchar(30),
 	constraint PK_id_proveedor PRIMARY KEY(id_proveedor),
@@ -97,7 +97,7 @@ create table proveedor(
 
 create table vendedor(
 	id_vendedor integer identity(1,1),
-	cedula varchar(9),
+	cedula integer,
 	salario integer,
 	fecha_Contrato date,
 	constraint PK_id_vendedor PRIMARY KEY(id_vendedor),
