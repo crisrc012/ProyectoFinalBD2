@@ -14,15 +14,10 @@ ALTER TABLE PADRON_COMPLETO
 ADD CONSTRAINT PK_Cedula PRIMARY KEY(Cedula);
 
 create table persona(
-	id_persona int identity(1,1),
 	cedula varchar(9),
-	nombre varchar(20),
-	apellido1 varchar(50),
-	apellido2 varchar(50),
 	activo bit,
 	constraint FK_cedula FOREIGN KEY(cedula)
 	REFERENCES PADRON_COMPLETO(Cedula),
-	constraint PK_id_persona PRIMARY KEY(id_persona)
 );
 
 create table rol (
@@ -33,52 +28,52 @@ create table rol (
 
 create table usuarios(
 	id_usuarios integer identity(1,1),
-	id_persona integer,
+	cedula varchar(9),
 	id_rol integer,
 	username varchar(10),
 	contraseña varchar(15),
 	constraint PK_id_usuarios PRIMARY KEY(id_usuarios),
-	constraint FK_Ucedula FOREIGN KEY (id_persona)
-	REFERENCES persona(id_persona),
+	constraint FK_Ucedula FOREIGN KEY(cedula)
+	REFERENCES PADRON_COMPLETO(Cedula),
 	constraint FK_Urol FOREIGN KEY (id_rol)
 	REFERENCES rol(id_rol)
 );
 
 create table direccion(
 	id_direccion integer identity(1,1),
-	id_persona integer,
+	cedula varchar(9),
 	descripcion varchar(200),
 	ciudad varchar(30),
 	constraint PK_id_direccion PRIMARY KEY(id_direccion),
-	constraint FK_id_persona FOREIGN KEY (id_persona)
-	REFERENCES persona(id_persona)
+	constraint FK_id_persona FOREIGN KEY(cedula)
+	REFERENCES PADRON_COMPLETO(Cedula),
 );
 
 create table correo(
 	id_correo integer identity(1,1),
-	id_persona integer,
+	cedula varchar(9),
 	direccion varchar(50),
 	constraint PK_id_correo PRIMARY KEY(id_correo),
-	constraint FK_id_cpersona FOREIGN KEY (id_persona)
-	REFERENCES persona(id_persona)
+	constraint FK_id_cpersona FOREIGN KEY(cedula)
+	REFERENCES PADRON_COMPLETO(Cedula),
 );
 
 create table telefono(
 	id_telefono integer identity(1,1),
 	numero integer,
-	id_persona integer,
+	cedula varchar(9),
 	descripcion varchar(200),
 	constraint PK_id_telefono PRIMARY KEY(id_telefono),
-	constraint FK_tid_persona FOREIGN KEY (id_persona)
-	REFERENCES persona(id_persona)
+	constraint FK_tid_persona FOREIGN KEY(cedula)
+	REFERENCES PADRON_COMPLETO(Cedula),
 );
 
 create table cliente(
 	id_cliente integer identity(1,1),
-	id_persona integer,
+	cedula varchar(9),
 	constraint PK_id_cliente PRIMARY KEY(id_cliente),
-	constraint FK_clid_persona FOREIGN KEY (id_persona)
-	REFERENCES persona(id_persona)
+	constraint FK_clid_persona FOREIGN KEY(cedula)
+	REFERENCES PADRON_COMPLETO(Cedula),
 );
 
 create table compania(
@@ -90,24 +85,24 @@ create table compania(
 
 create table proveedor(
 	id_proveedor integer identity(1,1),
-	id_persona integer,
+	cedula varchar(9),
 	id_compania integer,
 	cargo varchar(30),
 	constraint PK_id_proveedor PRIMARY KEY(id_proveedor),
-	constraint FK_pid_persona FOREIGN KEY (id_persona)
-	REFERENCES persona(id_persona),
+	constraint FK_pid_persona FOREIGN KEY(cedula)
+	REFERENCES PADRON_COMPLETO(Cedula),
 	constraint FK_idcompania FOREIGN KEY (id_compania)
 	REFERENCES compania(id_compania)
 );
 
 create table vendedor(
 	id_vendedor integer identity(1,1),
-	id_persona integer,
+	cedula varchar(9),
 	salario integer,
 	fecha_Contrato date,
 	constraint PK_id_vendedor PRIMARY KEY(id_vendedor),
-	constraint FK_vid_persona FOREIGN KEY (id_persona)
-	REFERENCES persona(id_persona)
+	constraint FK_vid_persona FOREIGN KEY(cedula)
+	REFERENCES PADRON_COMPLETO(Cedula),
 );
 
 create table factura(
@@ -119,8 +114,8 @@ create table factura(
 	impuesto integer,
 	total integer,
 	constraint PK_id_factura PRIMARY KEY(id_factura),
-	constraint FK_fid_persona FOREIGN KEY (id_cliente)
-	REFERENCES persona(id_persona),
+	constraint FK_fid_cliente FOREIGN KEY(id_cliente)
+	REFERENCES cliente(id_cliente),
 	constraint FK_idvendedor FOREIGN KEY (id_vendedor)
 	REFERENCES vendedor(id_vendedor)
 );

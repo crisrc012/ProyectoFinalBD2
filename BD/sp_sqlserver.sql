@@ -1,26 +1,26 @@
 -- Nombre completo
-CREATE FUNCTION nombre_completo
+ALTER FUNCTION nombre_completo
 (
 	@cedula INT
 )
-returns VARCHAR(120)
+returns VARCHAR(150)
 AS
 BEGIN
-	DECLARE @nombre VARCHAR(20)
+	DECLARE @nombre VARCHAR(50)
 	DECLARE @apellido1 VARCHAR(50)
 	DECLARE @apellido2 VARCHAR(50)
 	DECLARE @nombre_completo VARCHAR(120)
-	SELECT @nombre = LTRIM(RTRIM([proyectofinal].[dbo].[persona].[nombre]))
-		,@apellido1 = LTRIM(RTRIM([proyectofinal].[dbo].[persona].[apellido1]))
-		,@apellido2 = LTRIM(RTRIM([proyectofinal].[dbo].[persona].[apellido2]))
-	FROM [proyectofinal].[dbo].[persona]
-	WHERE [proyectofinal].[dbo].[persona].[cedula] = @cedula
+	SELECT @nombre = LTRIM(RTRIM([proyectofinal].[dbo].[PADRON_COMPLETO].[Nombre]))
+		,@apellido1 = LTRIM(RTRIM([proyectofinal].[dbo].[PADRON_COMPLETO].[1.Apellido]))
+		,@apellido2 = LTRIM(RTRIM([proyectofinal].[dbo].[PADRON_COMPLETO].[2.Apellido]))
+	FROM [proyectofinal].[dbo].[PADRON_COMPLETO]
+	WHERE [proyectofinal].[dbo].[PADRON_COMPLETO].[Cedula] = @cedula
 	SET @nombre_completo = CONCAT(@nombre, ' ', @apellido1, ' ', @apellido2)
 	RETURN @nombre_completo
 END;
 
 -- Leer información de usuarios
-CREATE PROC sp_usuarios
+ALTER PROC sp_usuarios
 	@id_usuarios INT
 	,@cedula INT
 	,@id_rol INT
