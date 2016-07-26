@@ -13,8 +13,8 @@ namespace Datos
             // Parametros de los servidores de base de datos
             string servidor = "127.0.0.1";
             string bd = "proyectofinal";
-            string usuario = "root";
-            string contrasena = "Abc12345";
+            string usuario = "user1";
+            string contrasena = "Abc1234";
             c = new Conexiones();
             // Conexion para SQL Server
             if (!mysql)

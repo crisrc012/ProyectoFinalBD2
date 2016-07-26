@@ -165,7 +165,7 @@ create table bitac_cliente (
 
 --Creación de usuario SQL
 CREATE LOGIN user1
-WITH PASSWORD = 'Abc_1234'
+WITH PASSWORD = 'Abc1234'
 ,DEFAULT_DATABASE = [proyectofinal]
 ,DEFAULT_LANGUAGE = [us_english]
 ,CHECK_EXPIRATION = OFF,

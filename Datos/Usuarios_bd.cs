@@ -18,10 +18,8 @@ namespace Datos
 
         public DataTable Select()
         {
-            string sql = "select U.id_usuarios, U.cedula , U.username, U.id_rol, P.nombre, P.apellido1, P.apellido2" +
-                         "from usuarios U"+
-                         "inner join persona P"+
-                         "on U.cedula = P.cedula;";
+            string sql = "select U.id_usuarios, U.cedula, U.username, U.id_rol, P.nombre, P.apellido1, P.apellido2 " +
+                         "from usuarios U inner join persona P on U.cedula = P.cedula;";
             DataTable datos = new DataTable();
             if (!mysql)
             {
