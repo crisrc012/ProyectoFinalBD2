@@ -17,8 +17,8 @@ BEGIN
 	IF(@id != 0)
 	BEGIN
 		INSERT INTO [dbo].[bitac_cliente]
-		(id_cliente, evento, fecha, usuario, servidor)
-		VALUES (@ced, 'UPDATE', GETDATE(), SYSTEM_USER, LOCALHOST());
+		(id_cliente, evento, fecha, usuario)
+		VALUES (@ced, 'UPDATE', GETDATE(), SYSTEM_USER);
 	END
 END
 GO
