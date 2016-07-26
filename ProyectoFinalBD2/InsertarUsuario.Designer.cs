@@ -30,10 +30,8 @@
         {
             this.btnInsertar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.txtCedula = new System.Windows.Forms.TextBox();
-            this.txtIdUsuario = new System.Windows.Forms.TextBox();
             this.txtContrasena = new System.Windows.Forms.TextBox();
             this.cmMotores = new System.Windows.Forms.ComboBox();
             this.lblMotor = new System.Windows.Forms.Label();
@@ -43,9 +41,10 @@
             // 
             // btnInsertar
             // 
-            this.btnInsertar.Location = new System.Drawing.Point(205, 376);
+            this.btnInsertar.Location = new System.Drawing.Point(154, 306);
+            this.btnInsertar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnInsertar.Name = "btnInsertar";
-            this.btnInsertar.Size = new System.Drawing.Size(137, 66);
+            this.btnInsertar.Size = new System.Drawing.Size(103, 54);
             this.btnInsertar.TabIndex = 0;
             this.btnInsertar.Text = "Insertar Usuario";
             this.btnInsertar.UseVisualStyleBackColor = true;
@@ -54,49 +53,37 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(71, 104);
+            this.label1.Location = new System.Drawing.Point(57, 49);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(52, 17);
+            this.label1.Size = new System.Drawing.Size(40, 13);
             this.label1.TabIndex = 1;
             this.label1.Text = "Cedula";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(60, 142);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(74, 17);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "ID Usuario";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(76, 240);
+            this.label3.Location = new System.Drawing.Point(57, 166);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(81, 17);
+            this.label3.Size = new System.Drawing.Size(61, 13);
             this.label3.TabIndex = 3;
             this.label3.Text = "Contrasena";
             // 
             // txtCedula
             // 
-            this.txtCedula.Location = new System.Drawing.Point(238, 104);
+            this.txtCedula.Location = new System.Drawing.Point(178, 46);
+            this.txtCedula.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtCedula.Name = "txtCedula";
-            this.txtCedula.Size = new System.Drawing.Size(100, 22);
+            this.txtCedula.Size = new System.Drawing.Size(76, 20);
             this.txtCedula.TabIndex = 4;
-            // 
-            // txtIdUsuario
-            // 
-            this.txtIdUsuario.Location = new System.Drawing.Point(238, 142);
-            this.txtIdUsuario.Name = "txtIdUsuario";
-            this.txtIdUsuario.Size = new System.Drawing.Size(100, 22);
-            this.txtIdUsuario.TabIndex = 5;
             // 
             // txtContrasena
             // 
-            this.txtContrasena.Location = new System.Drawing.Point(238, 252);
+            this.txtContrasena.Location = new System.Drawing.Point(178, 166);
+            this.txtContrasena.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtContrasena.Name = "txtContrasena";
-            this.txtContrasena.Size = new System.Drawing.Size(100, 22);
+            this.txtContrasena.Size = new System.Drawing.Size(176, 20);
             this.txtContrasena.TabIndex = 6;
             // 
             // cmMotores
@@ -105,52 +92,55 @@
             this.cmMotores.Items.AddRange(new object[] {
             "MySQL",
             "SQL"});
-            this.cmMotores.Location = new System.Drawing.Point(238, 324);
+            this.cmMotores.Location = new System.Drawing.Point(178, 263);
+            this.cmMotores.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cmMotores.Name = "cmMotores";
-            this.cmMotores.Size = new System.Drawing.Size(121, 24);
+            this.cmMotores.Size = new System.Drawing.Size(92, 21);
             this.cmMotores.TabIndex = 7;
             // 
             // lblMotor
             // 
             this.lblMotor.AutoSize = true;
-            this.lblMotor.Location = new System.Drawing.Point(60, 331);
+            this.lblMotor.Location = new System.Drawing.Point(57, 271);
+            this.lblMotor.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblMotor.Name = "lblMotor";
-            this.lblMotor.Size = new System.Drawing.Size(44, 17);
+            this.lblMotor.Size = new System.Drawing.Size(34, 13);
             this.lblMotor.TabIndex = 8;
             this.lblMotor.Text = "Motor";
             // 
             // lblUsername
             // 
             this.lblUsername.AutoSize = true;
-            this.lblUsername.Location = new System.Drawing.Point(72, 191);
+            this.lblUsername.Location = new System.Drawing.Point(57, 102);
+            this.lblUsername.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblUsername.Name = "lblUsername";
-            this.lblUsername.Size = new System.Drawing.Size(127, 17);
+            this.lblUsername.Size = new System.Drawing.Size(96, 13);
             this.lblUsername.TabIndex = 9;
-            this.lblUsername.Text = "nombre de usuario";
+            this.lblUsername.Text = "Nombre de usuario";
             // 
             // txtUsername
             // 
-            this.txtUsername.Location = new System.Drawing.Point(238, 188);
+            this.txtUsername.Location = new System.Drawing.Point(178, 102);
+            this.txtUsername.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(100, 22);
+            this.txtUsername.Size = new System.Drawing.Size(176, 20);
             this.txtUsername.TabIndex = 10;
             // 
             // InsertarUsuario
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(590, 470);
+            this.ClientSize = new System.Drawing.Size(442, 382);
             this.Controls.Add(this.txtUsername);
             this.Controls.Add(this.lblUsername);
             this.Controls.Add(this.lblMotor);
             this.Controls.Add(this.cmMotores);
             this.Controls.Add(this.txtContrasena);
-            this.Controls.Add(this.txtIdUsuario);
             this.Controls.Add(this.txtCedula);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnInsertar);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "InsertarUsuario";
             this.Text = "InsertarUsuario";
             this.ResumeLayout(false);
@@ -162,10 +152,8 @@
 
         private System.Windows.Forms.Button btnInsertar;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtCedula;
-        private System.Windows.Forms.TextBox txtIdUsuario;
         private System.Windows.Forms.TextBox txtContrasena;
         private System.Windows.Forms.ComboBox cmMotores;
         private System.Windows.Forms.Label lblMotor;

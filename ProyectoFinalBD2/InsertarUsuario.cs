@@ -48,7 +48,6 @@ namespace ProyectoFinalBD2
                     nuevo.cedula = Int32.Parse(txtCedula.Text);
                     nuevo.contraseña = txtContrasena.Text;
                     nuevo.id_rol = 1;
-                    nuevo.id_usuarios = Int32.Parse(txtIdUsuario.Text);
                     nuevo.username = txtUsername.Text;
                     usersbd.Insert(nuevo);
                 }else
@@ -72,7 +71,6 @@ namespace ProyectoFinalBD2
                     nuevo.cedula = Int32.Parse(txtCedula.Text);
                     nuevo.contraseña = txtContrasena.Text;
                     nuevo.id_rol = 1;
-                    nuevo.id_usuarios = Int32.Parse(txtIdUsuario.Text);
                     nuevo.username = txtUsername.Text;
                     usersbd.Insert(nuevo);
                 }

@@ -20,7 +20,7 @@ namespace Datos
             if (!mysql)
             {
                 cadenaConexion =
-                  @"Data Source =" + servidor + ";"
+                  @"Data Source =" + servidor + "\\SQL2014N1;"
                     + "Initial Catalog =" + bd + ";"
                     + "User ID =" + usuario + ";"
                     + "Password =" + contrasena + ";";

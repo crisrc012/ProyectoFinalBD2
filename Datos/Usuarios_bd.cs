@@ -43,7 +43,6 @@ namespace Datos
                 c.getConexion().conexionMSSQL.Open();
                 SqlCommand cmd = new SqlCommand(null, c.getConexion().conexionMSSQL);
                 cmd.CommandText = sql;
-                cmd.Parameters.Add("@id_usuarios", SqlDbType.Int).Value = u.id_usuarios;
                 cmd.Parameters.Add("@cedula", SqlDbType.Int).Value = u.cedula;
                 cmd.Parameters.Add("@id_rol", SqlDbType.Int).Value = u.id_rol;
                 cmd.Parameters.Add("@username", SqlDbType.VarChar).Value = u.username;
@@ -67,7 +66,6 @@ namespace Datos
                 c.getConexion().conexionMySQL.Open();
                 MySqlCommand cmd = new MySqlCommand(null, c.getConexion().conexionMySQL);
                 cmd.CommandText = sql;
-                cmd.Parameters.AddWithValue("@id_usuarios", SqlDbType.Int).Value = u.id_usuarios;
                 cmd.Parameters.AddWithValue("@cedula", SqlDbType.Int).Value = u.cedula;
                 cmd.Parameters.AddWithValue("@id_rol", SqlDbType.Int).Value = u.id_rol;
                 cmd.Parameters.AddWithValue("@username", SqlDbType.VarChar).Value = u.username;
@@ -90,8 +88,8 @@ namespace Datos
 
         public void Insert(Usuarios u)
         {
-            string sql = "insert into usuarios (id_usuarios,cedula,id_rol,username,contraseña) "
-                    + "values(@id_usuarios, @cedula, @id_rol, @username, @contraseña);";
+            string sql = "insert into usuarios (cedula,id_rol,username,contraseña) "
+                    + "values(@cedula, @id_rol, @username, @contraseña);";
             insert_update(sql, u);
         }
 
