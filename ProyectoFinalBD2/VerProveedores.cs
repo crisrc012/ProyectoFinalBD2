@@ -16,5 +16,10 @@ namespace ProyectoFinalBD2
         {
             InitializeComponent();
         }
+
+        private void VerProveedores_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
