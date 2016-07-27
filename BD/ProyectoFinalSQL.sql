@@ -170,8 +170,8 @@ CHECK_POLICY = OFF;
 
 USE proyectofinal;
 GO
-CREATE USER user1
-FOR LOGIN user1
+CREATE USER [user1]
+FOR LOGIN [user1]
 WITH DEFAULT_SCHEMA = [user1];
 
 GRANT SELECT ON usuarios 
