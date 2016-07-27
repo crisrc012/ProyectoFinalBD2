@@ -59,7 +59,7 @@ namespace Datos
                 }
                 catch (SqlException ex)
                 {
-                    System.Console.Write(ex.Message);
+                    Console.Write(ex.Message);
                 }
                 finally
                 {

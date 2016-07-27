@@ -184,4 +184,5 @@ GRANT EXECUTE ON OBJECT::[proyectofinal].[dbo].[sp_usuarios]
 GO
 GRANT EXECUTE ON OBJECT::[proyectofinal].[dbo].[sp_cliente]
     TO user1;  
-GO 
+GO
+

@@ -27,6 +27,8 @@ namespace ProyectoFinalBD2
                 if (dt.Rows.Count > 0)
                 {
                     txtNombre.Text = dt.Rows[0].Field<string>(2);
+                    txtApellido1.Text = dt.Rows[0].Field<string>(3);
+                    txtApellido2.Text = dt.Rows[0].Field<string>(4);
                 }
                 //else
                 //{

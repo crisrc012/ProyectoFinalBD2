@@ -89,7 +89,9 @@ AS
 BEGIN
 	SELECT [proyectofinal].[dbo].[cliente].[id_cliente] AS "# Cliente"
 		,[proyectofinal].[dbo].[cliente].[cedula] AS "Cédula"
-		,[dbo].[nombre_completo]([proyectofinal].[dbo].[cliente].[cedula]) AS "Nombre completo"
+		,[proyectofinal].[dbo].[PADRON_COMPLETO].[Nombre] AS "Nombre"
+		,[proyectofinal].[dbo].[PADRON_COMPLETO].[1.Apellido] AS "Apellido 1"
+		,[proyectofinal].[dbo].[PADRON_COMPLETO].[2.Apellido] AS "Apellido 2"
 		,CASE [proyectofinal].[dbo].[persona].[activo]
 			WHEN 0 THEN 'No'
 			WHEN 1 THEN 'Sí'
@@ -98,6 +100,8 @@ BEGIN
 	FROM [proyectofinal].[dbo].[cliente]
 	INNER JOIN [proyectofinal].[dbo].[persona]
 	ON [proyectofinal].[dbo].[cliente].[cedula] = [proyectofinal].[dbo].[persona].[cedula]
+	INNER JOIN [proyectofinal].[dbo].[PADRON_COMPLETO]
+	ON [proyectofinal].[dbo].[PADRON_COMPLETO].[Cedula] = [proyectofinal].[dbo].[persona].[cedula]
 	WHERE [proyectofinal].[dbo].[cliente].[id_cliente] = ISNULL(@id_cliente,[proyectofinal].[dbo].[cliente].[id_cliente])
 	and [proyectofinal].[dbo].[cliente].[cedula] = ISNULL(@cedula,[proyectofinal].[dbo].[cliente].[cedula]);
 END;
