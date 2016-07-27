@@ -1,5 +1,5 @@
 -- Nombre completo
-ALTER FUNCTION nombre_completo
+CREATE FUNCTION nombre_completo
 (
 	@cedula INT
 )
@@ -20,7 +20,7 @@ BEGIN
 END;
 
 -- Leer información de usuarios
-ALTER PROC sp_usuarios
+CREATE PROC sp_usuarios
 	@id_usuarios INT
 	,@cedula INT
 	,@id_rol INT
