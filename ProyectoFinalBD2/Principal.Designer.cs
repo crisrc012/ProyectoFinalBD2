@@ -118,6 +118,7 @@
             this.verProveedoresToolStripMenuItem.Name = "verProveedoresToolStripMenuItem";
             this.verProveedoresToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
             this.verProveedoresToolStripMenuItem.Text = "Ver proveedores";
+            this.verProveedoresToolStripMenuItem.Click += new System.EventHandler(this.verProveedoresToolStripMenuItem_Click);
             // 
             // facturaToolStripMenuItem
             // 

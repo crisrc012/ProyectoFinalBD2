@@ -19,7 +19,8 @@ namespace ProyectoFinalBD2
 
         private void VerProveedores_Load(object sender, EventArgs e)
         {
-
+            Logica.Proveedores_lg clg = new Logica.Proveedores_lg(false);
+            dGV.DataSource = clg.Select();
         }
     }
 }
