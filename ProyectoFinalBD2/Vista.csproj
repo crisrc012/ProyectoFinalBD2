@@ -99,6 +99,18 @@
     <Compile Include="Tabla.Designer.cs">
       <DependentUpon>Tabla.cs</DependentUpon>
     </Compile>
+    <Compile Include="VerClientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VerClientes.Designer.cs">
+      <DependentUpon>VerClientes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VerUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VerUsuarios.Designer.cs">
+      <DependentUpon>VerUsuarios.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Modificar_Cliente.resx">
       <DependentUpon>Modificar_Cliente.cs</DependentUpon>
     </EmbeddedResource>
@@ -123,6 +135,12 @@
     </Compile>
     <EmbeddedResource Include="Tabla.resx">
       <DependentUpon>Tabla.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VerClientes.resx">
+      <DependentUpon>VerClientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VerUsuarios.resx">
+      <DependentUpon>VerUsuarios.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="ClassDiagram1.cd" />
     <None Include="Properties\Settings.settings">

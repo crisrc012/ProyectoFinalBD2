@@ -1,7 +1,5 @@
-﻿using Entidades;
-using System;
+﻿using System;
 using System.Data;
-using System.Data.SqlClient;
 using System.Windows.Forms;
 
 namespace ProyectoFinalBD2
@@ -30,14 +28,14 @@ namespace ProyectoFinalBD2
                     txtApellido1.Text = dt.Rows[0].Field<string>(3);
                     txtApellido2.Text = dt.Rows[0].Field<string>(4);
                 }
-                //else
-                //{
-                //    MessageBox.Show(this,
-                //    "No existe nungun cliente con ese numero de cedula",
-                //    "Error",
-                //    MessageBoxButtons.OK,
-                //    MessageBoxIcon.Error);
-                //}
+                else
+                {
+                    MessageBox.Show(this,
+                    "No existe nungun cliente con ese numero de cedula",
+                    "Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+                }
             }
             else
             {

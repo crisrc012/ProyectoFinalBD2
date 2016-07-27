@@ -106,5 +106,19 @@ namespace ProyectoFinalBD2
             mdf.MdiParent = this; //esto no estoy segura de si es con this 
             mdf.Show();
         }
+
+        private void modificarClienteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            VerClientes mdf = new VerClientes();
+            mdf.MdiParent = this; //esto no estoy segura de si es con this 
+            mdf.Show();
+        }
+
+        private void verUsuariosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            VerUsuarios mdf = new VerUsuarios();
+            mdf.MdiParent = this; //esto no estoy segura de si es con this 
+            mdf.Show();
+        }
     }
 }
