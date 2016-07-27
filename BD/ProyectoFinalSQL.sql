@@ -178,3 +178,7 @@ GRANT SELECT ON usuarios
 TO user1;
 GRANT SELECT ON persona
 TO user1;
+
+GRANT EXECUTE ON OBJECT::[proyectofinal].[dbo].[sp_usuarios]
+    TO user1;  
+GO 
