@@ -1,6 +1,6 @@
 --TRIGGER SQL
 CREATE TRIGGER [dbo].[Udp_Cliente] 
-ON [dbo].[persona]
+ON [dbo].[PADRON_COMPLETO]
 AFTER UPDATE 
 AS
 BEGIN
