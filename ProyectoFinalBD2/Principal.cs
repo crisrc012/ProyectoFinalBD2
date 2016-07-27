@@ -127,5 +127,12 @@ namespace ProyectoFinalBD2
             mdf.MdiParent = this; //esto no estoy segura de si es con this 
             mdf.Show();
         }
+
+        private void verFacturasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            VerFacturas mdf = new VerFacturas();
+            mdf.MdiParent = this; //esto no estoy segura de si es con this 
+            mdf.Show();
+        }
     }
 }

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Entidades;
+using Logica;
+using System;
 using System.Data;
 using System.Windows.Forms;
 
@@ -13,7 +15,13 @@ namespace ProyectoFinalBD2
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
-
+            Clientes c = new Clientes();
+            c.cedula = int.Parse(txtCedula.Text);
+            c.nombre = txtNombre.Text;
+            c.apellido1 = txtApellido1.Text;
+            c.apellido2 = txtApellido2.Text;
+            Clientes_lg clg = new Clientes_lg();
+            clg.Update(c);
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)

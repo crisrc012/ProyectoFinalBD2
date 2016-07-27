@@ -160,3 +160,17 @@ END
 
 --EXEC sp_insert_usuarios 109990999,1,prueba,rootroot1;
 --SELECT * FROM usuarios
+
+create proc sp_update_persona
+@cedula int
+,@nombre varchar(50)
+,@apellido1 varchar(50)
+,@apellido2 varchar(50)
+as
+begin
+	update [ProyectoFinal].[dbo].[PADRON_COMPLETO]
+	set [ProyectoFinal].[dbo].[PADRON_COMPLETO].[Nombre] = @nombre,
+	[ProyectoFinal].[dbo].[PADRON_COMPLETO].[1.Apellido] = @apellido1,
+	[ProyectoFinal].[dbo].[PADRON_COMPLETO].[2.Apellido] = @apellido2
+	where [ProyectoFinal].[dbo].[PADRON_COMPLETO].[Cedula] = @cedula
+end;

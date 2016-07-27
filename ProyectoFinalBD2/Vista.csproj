@@ -111,6 +111,12 @@
     <Compile Include="VerClientes.Designer.cs">
       <DependentUpon>VerClientes.cs</DependentUpon>
     </Compile>
+    <Compile Include="VerFacturas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VerFacturas.Designer.cs">
+      <DependentUpon>VerFacturas.cs</DependentUpon>
+    </Compile>
     <Compile Include="VerProveedores.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -153,6 +159,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="VerClientes.resx">
       <DependentUpon>VerClientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VerFacturas.resx">
+      <DependentUpon>VerFacturas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VerProveedores.resx">
       <DependentUpon>VerProveedores.cs</DependentUpon>

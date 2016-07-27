@@ -46,12 +46,11 @@ namespace Datos
             if (!mysql)
             {
                 c.getConexion().conexionMSSQL.Open();
-                SqlCommand cmd = new SqlCommand(null, c.getConexion().conexionMSSQL);
-                cmd.CommandText = sql;
-                cmd.Parameters.Add("@cedula", SqlDbType.Int).Value = cl.cedula;
-                cmd.Parameters.Add("@nombre", SqlDbType.Int).Value = cl.nombre;
-                cmd.Parameters.Add("@apellido1", SqlDbType.VarChar).Value = cl.apellido1;
-                cmd.Parameters.Add("@apellido2", SqlDbType.VarChar).Value = cl.apellido2;
+                SqlCommand cmd = new SqlCommand(sql, c.getConexion().conexionMSSQL);
+                cmd.Parameters.Add("@cedula", SqlDbType.Int).Value = (object)cl.cedula ?? DBNull.Value;
+                cmd.Parameters.Add("@nombre", SqlDbType.VarChar, 50).Value = (object)cl.nombre ?? DBNull.Value;
+                cmd.Parameters.Add("@apellido1", SqlDbType.VarChar, 50).Value = (object)cl.apellido1 ?? DBNull.Value;
+                cmd.Parameters.Add("@apellido2", SqlDbType.VarChar, 50).Value = (object)cl.apellido2 ?? DBNull.Value;
                 cmd.Prepare();
                 try
                 {
@@ -100,9 +99,7 @@ namespace Datos
 
         public void Update(Clientes cl)
         {
-            string sql = "update persona set "
-                + "nombre = @nombre, apellido1 = @apellido1, apellido2 = @apellido2"
-                + "where cedula = @cedula;";
+            string sql = "exec sp_update_persona @cedula,@nombre,@apellido1,@apellido2;";
             insert_update(sql, cl);
         }
 
