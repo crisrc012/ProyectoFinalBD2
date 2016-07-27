@@ -17,7 +17,7 @@ create table persona(
 	cedula integer,
 	activo bit,
 	constraint FK_cedula FOREIGN KEY(cedula)
-	REFERENCES PADRON_COMPLETO(Cedula),
+	REFERENCES PADRON_COMPLETO(Cedula)
 );
 
 create table rol (

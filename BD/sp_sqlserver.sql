@@ -133,3 +133,30 @@ BEGIN
 END;
 
 EXEC sp_factura null,null,null
+
+--Insertar usuario, validando a Padrón
+CREATE PROC sp_insert_usuarios
+	 @cedula INT
+	,@id_rol INT
+	,@username VARCHAR(10)
+	,@contraseña VARCHAR(15)
+AS
+BEGIN
+	DECLARE @total TINYINT;
+	SELECT @total = COUNT(*) 
+	FROM [proyectofinal].[dbo].[PADRON_COMPLETO]
+	WHERE [proyectofinal].[dbo].[PADRON_COMPLETO].[Cedula] = @cedula;
+	IF(@total = 0)
+	BEGIN	
+		RAISERROR('La cédula no existe dentro del Padrón Electoral, no se puede crear el usuario.',10,1);
+	END
+	ELSE
+	BEGIN
+		INSERT INTO [ProyectoFinal].[dbo].[usuarios]
+		(cedula,id_rol,username,contraseña)
+		VALUES(@cedula,@id_rol,@username,@contraseña);
+	END
+END
+
+--EXEC sp_insert_usuarios 109990999,1,prueba,rootroot1;
+--SELECT * FROM usuarios

@@ -12,7 +12,7 @@ BEGIN
 	ON P.cedula = C.cedula
 	INNER JOIN factura F
 	ON F.id_cliente = C.id_cliente
-	AND F.id_factura = 1
+	AND F.id_factura = @id_factura
 	FOR XML AUTO, TYPE) AS Cliente
 	,(SELECT P.Nombre + P.apellido1 + P.apellido2 AS Nombre
 	FROM persona P
@@ -20,7 +20,7 @@ BEGIN
 	ON P.cedula = V.cedula
 	INNER JOIN factura F
 	ON F.id_vendedor = V.id_vendedor
-	AND F.id_factura = 1
+	AND F.id_factura = @id_factura
 	FOR XML AUTO, TYPE) AS Vendedor
 	,(SELECT P.Nombre + P.apellido1 + P.apellido2 AS Nombre
 	FROM persona P
@@ -30,7 +30,7 @@ BEGIN
 	ON Pr.id_proveedor = PV.id_proveedor
 	INNER JOIN detalle D
 	ON D.id_producto = Pr.id_producto
-	AND D.id_factura = 1
+	AND D.id_factura = @id_factura
 	FOR XML AUTO, TYPE) AS Proveedor
 	,(SELECT Pr.nombre AS Producto
 	, D.descuento AS Descuento
