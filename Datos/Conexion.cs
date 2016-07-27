@@ -11,7 +11,7 @@ namespace Datos
         public Conexion(bool mysql = false)
         {
             // Parametros de los servidores de base de datos
-            string servidor = "127.0.0.1";
+            string servidor = "localhost";
             string bd = "proyectofinal";
             string usuario = "user1";
             string contrasena = "Abc1234";
@@ -20,7 +20,7 @@ namespace Datos
             if (!mysql)
             {
                 cadenaConexion =
-                  @"Data Source =" + servidor + "\\SQL2014N1;"
+                  "Data Source =" + servidor + "\\U;" //SQL2014N1 - Cambiar por el nombre de la instancia de cada uno
                     + "Initial Catalog =" + bd + ";"
                     + "User ID =" + usuario + ";"
                     + "Password =" + contrasena + ";";
