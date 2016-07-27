@@ -12,10 +12,7 @@
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
-<<<<<<< HEAD
     <TargetFrameworkProfile />
-=======
->>>>>>> 6a62050708337ce0b5f2ea21401a8938f08843c1
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
