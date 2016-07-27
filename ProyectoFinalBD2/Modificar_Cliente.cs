@@ -49,6 +49,10 @@ namespace ProyectoFinalBD2
             {
                 MessageBox.Show("no hay texto del que se pueda buscar","ERROR",MessageBoxButtons.OK,MessageBoxIcon.Error);
             }
+            txtCedula.Text = " ";
+            txtNombre.Text = " ";
+            txtApellido1.Text = " ";
+            txtApellido2.Text = " ";
         }
     }
 }

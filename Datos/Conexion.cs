@@ -19,7 +19,7 @@ namespace Datos
             // Conexion para SQL Server
             if (!mysql)
             {
-                cadenaConexion =
+                cadenaConexion = 
                   "Data Source =" + servidor + "\\U;" //SQL2014N1 - Cambiar por el nombre de la instancia de cada uno
                     + "Initial Catalog =" + bd + ";"
                     + "User ID =" + usuario + ";"

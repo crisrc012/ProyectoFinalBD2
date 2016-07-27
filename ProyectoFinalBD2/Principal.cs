@@ -103,35 +103,42 @@ namespace ProyectoFinalBD2
         private void modificarClienteToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             Modificar_Cliente mdf = new Modificar_Cliente();
-            mdf.MdiParent = this; //esto no estoy segura de si es con this 
+            mdf.MdiParent = this; 
             mdf.Show();
         }
 
         private void modificarClienteToolStripMenuItem_Click(object sender, EventArgs e)
         {
             VerClientes mdf = new VerClientes();
-            mdf.MdiParent = this; //esto no estoy segura de si es con this 
+            mdf.MdiParent = this;  
             mdf.Show();
         }
 
         private void verUsuariosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            VerUsuarios mdf = new VerUsuarios();
-            mdf.MdiParent = this; //esto no estoy segura de si es con this 
+            Login mdf = new Login();
+            mdf.MdiParent = this;
             mdf.Show();
         }
 
         private void verProveedoresToolStripMenuItem_Click(object sender, EventArgs e)
         {
             VerProveedores mdf = new VerProveedores();
-            mdf.MdiParent = this; //esto no estoy segura de si es con this 
+            mdf.MdiParent = this;  
             mdf.Show();
         }
 
         private void verFacturasToolStripMenuItem_Click(object sender, EventArgs e)
         {
             VerFacturas mdf = new VerFacturas();
-            mdf.MdiParent = this; //esto no estoy segura de si es con this 
+            mdf.MdiParent = this; 
+            mdf.Show();
+        }
+        
+        private void insertarUsuariosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            InsertarUsuario mdf = new InsertarUsuario();
+            mdf.MdiParent = this; 
             mdf.Show();
         }
     }

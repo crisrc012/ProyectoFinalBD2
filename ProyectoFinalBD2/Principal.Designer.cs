@@ -81,6 +81,7 @@
             this.insertarUsuariosToolStripMenuItem.Name = "insertarUsuariosToolStripMenuItem";
             this.insertarUsuariosToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
             this.insertarUsuariosToolStripMenuItem.Text = "Insertar Usuarios";
+            this.insertarUsuariosToolStripMenuItem.Click += new System.EventHandler(this.insertarUsuariosToolStripMenuItem_Click);
             // 
             // clientesToolStripMenuItem
             // 
@@ -116,7 +117,7 @@
             // verProveedoresToolStripMenuItem
             // 
             this.verProveedoresToolStripMenuItem.Name = "verProveedoresToolStripMenuItem";
-            this.verProveedoresToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
+            this.verProveedoresToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
             this.verProveedoresToolStripMenuItem.Text = "Ver proveedores";
             this.verProveedoresToolStripMenuItem.Click += new System.EventHandler(this.verProveedoresToolStripMenuItem_Click);
             // 
@@ -131,7 +132,7 @@
             // verFacturasToolStripMenuItem
             // 
             this.verFacturasToolStripMenuItem.Name = "verFacturasToolStripMenuItem";
-            this.verFacturasToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.verFacturasToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
             this.verFacturasToolStripMenuItem.Text = "Ver Facturas";
             this.verFacturasToolStripMenuItem.Click += new System.EventHandler(this.verFacturasToolStripMenuItem_Click);
             // 
@@ -161,7 +162,7 @@
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip;
             this.Name = "Principal";
-            this.Text = "Principal";
+            this.Text = "Proyecto Final PII06";
             this.Load += new System.EventHandler(this.Principal_Load);
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();

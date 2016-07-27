@@ -1,5 +1,6 @@
 ﻿using Entidades;
 using MySql.Data.MySqlClient;
+using System;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -42,10 +43,10 @@ namespace Datos
                 c.getConexion().conexionMSSQL.Open();
                 SqlCommand cmd = new SqlCommand(null, c.getConexion().conexionMSSQL);
                 cmd.CommandText = sql;
-                cmd.Parameters.Add("@cedula", SqlDbType.Int).Value = u.cedula;
-                cmd.Parameters.Add("@id_rol", SqlDbType.Int).Value = u.id_rol;
-                cmd.Parameters.Add("@username", SqlDbType.VarChar).Value = u.username;
-                cmd.Parameters.Add("@contraseña", SqlDbType.VarChar).Value = u.contraseña;
+                cmd.Parameters.Add("@cedula", SqlDbType.Int).Value = (object)u.cedula ?? DBNull.Value;
+                cmd.Parameters.Add("@id_rol", SqlDbType.Int).Value = (object)u.id_rol ?? DBNull.Value;
+                cmd.Parameters.Add("@username", SqlDbType.VarChar,10).Value = (object)u.username ?? DBNull.Value;
+                cmd.Parameters.Add("@contraseña", SqlDbType.VarChar,15).Value = (object)u.contraseña ?? DBNull.Value;
                 cmd.Prepare();
                 try
                 {
@@ -87,8 +88,7 @@ namespace Datos
 
         public void Insert(Usuarios u)
         {
-            string sql = "insert into usuarios (cedula,id_rol,username,contraseña) "
-                    + "values(@cedula, @id_rol, @username, @contraseña);";
+            string sql = "exc sp_insert_usuario @cedula, @id_rol, @username, @contraseña;";
             insert_update(sql, u);
         }
 

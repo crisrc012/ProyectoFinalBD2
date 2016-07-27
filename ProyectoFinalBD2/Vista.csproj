@@ -123,12 +123,6 @@
     <Compile Include="VerProveedores.Designer.cs">
       <DependentUpon>VerProveedores.cs</DependentUpon>
     </Compile>
-    <Compile Include="VerUsuarios.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="VerUsuarios.Designer.cs">
-      <DependentUpon>VerUsuarios.cs</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="Modificar_Cliente.resx">
       <DependentUpon>Modificar_Cliente.cs</DependentUpon>
     </EmbeddedResource>
@@ -165,9 +159,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="VerProveedores.resx">
       <DependentUpon>VerProveedores.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="VerUsuarios.resx">
-      <DependentUpon>VerUsuarios.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="ClassDiagram1.cd" />
     <None Include="Properties\Settings.settings">
