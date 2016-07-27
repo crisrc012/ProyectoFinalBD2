@@ -11,7 +11,7 @@ namespace Datos
         public Conexion(bool mysql = false)
         {
             // Parametros de los servidores de base de datos
-            string servidor = "localhost";
+            string servidor = @"ASUS\SQL2014N1";
             string bd = "proyectofinal";
             string usuario = "user1";
             string contrasena = "Abc1234";
@@ -19,11 +19,9 @@ namespace Datos
             // Conexion para SQL Server
             if (!mysql)
             {
-                cadenaConexion = 
-                  "Data Source =" + servidor + "\\U;" //SQL2014N1 - Cambiar por el nombre de la instancia de cada uno
-                    + "Initial Catalog =" + bd + ";"
-                    + "User ID =" + usuario + ";"
-                    + "Password =" + contrasena + ";";
+                cadenaConexion = "Data Source = " + servidor + "; Initial Catalog =" + bd + "; Integrated Security = True";
+
+
                 c.conexionMSSQL = new SqlConnection(cadenaConexion);
             }
             // Conexion para MySQL

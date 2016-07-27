@@ -25,42 +25,52 @@ namespace ProyectoFinalBD2
 
         private void btnInsertar_Click(object sender, EventArgs e)
         {
-            if (cmMotores.SelectedItem == null)
+            try
             {
-                MessageBox.Show(this,
-                    "Debe de seleccionar un motor de base de datos",
-                    "Error",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Error);
-                return;
-            }
-            // ejecutando segun motor
-            if (cmMotores.SelectedItem.ToString() == "SQL")
-            {
-                Usuarios nuevo = new Usuarios();
-                nuevo.cedula = int.Parse(txtCedula.Text);
-                nuevo.contraseña = txtContrasena.Text;
-                nuevo.id_rol = 1;
-                nuevo.username = txtUsername.Text;
-                MessageBox.Show(txtCedula.Text+ txtContrasena.Text+ txtUsername.Text);
-                usersbd.Insert(nuevo);
+                if (cmMotores.SelectedItem == null)
+                {
+                    MessageBox.Show(this,
+                        "Debe de seleccionar un motor de base de datos",
+                        "Error",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+                    return;
+                }
+                // ejecutando segun motor
+                if (cmMotores.SelectedItem.ToString() == "SQL")
+                {
+                    Usuarios nuevo = new Usuarios();
+                    nuevo.cedula = int.Parse(txtCedula.Text);
+                    nuevo.contraseña = txtContrasena.Text;
+                    nuevo.id_rol = 1;
+                    nuevo.username = txtUsername.Text;
+                    MessageBox.Show(txtCedula.Text + txtContrasena.Text + txtUsername.Text);
+                    usersbd.Insert(nuevo);
 
-                txtCedula.Text = "";
-                txtContrasena.Text = "";
-                txtUsername.Text = "";
-                
-            } else
-            {
-                Usuarios nuevo = new Usuarios();
-                nuevo.cedula = int.Parse(txtCedula.Text);
-                nuevo.contraseña = txtContrasena.Text;
-                nuevo.id_rol = 1;
-                nuevo.username = txtUsername.Text;
-                usersbd.Insert(nuevo);
-                txtCedula.Text = "";
-                txtContrasena.Text = "";
-                txtUsername.Text = "";
+                    txtCedula.Text = "";
+                    txtContrasena.Text = "";
+                    txtUsername.Text = "";
+
+                }
+                else
+                {
+                    Usuarios nuevo = new Usuarios();
+                    nuevo.cedula = int.Parse(txtCedula.Text);
+                    nuevo.contraseña = txtContrasena.Text;
+                    nuevo.id_rol = 1;
+                    nuevo.username = txtUsername.Text;
+                    usersbd.Insert(nuevo);
+                    txtCedula.Text = "";
+                    txtContrasena.Text = "";
+                    txtUsername.Text = "";
+                }
             }
+            catch (Exception eas )
+            {
+
+                MessageBox.Show(eas.Message, "error",MessageBoxButtons.OK,MessageBoxIcon.Error);
+            }
+           
         }
     }
 }
