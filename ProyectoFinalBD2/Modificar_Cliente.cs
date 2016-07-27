@@ -1,5 +1,6 @@
 ﻿using Entidades;
 using System;
+using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
 
@@ -21,26 +22,20 @@ namespace ProyectoFinalBD2
         {
             if (txtCedula.Text != "")
             {
-                string query = "Select * from cliente where Cedula='" + txtCedula + "'";
-                SqlCommand cmd = new SqlCommand(query, c.getConexion().conexionMSSQL);
-                SqlDataReader dtr = cmd.ExecuteReader();
-                if (dtr.HasRows)
+                Logica.Clientes_lg clg = new Logica.Clientes_lg();
+                DataTable dt = clg.Select(null, int.Parse(txtCedula.Text));
+                if (dt.Rows.Count > 0)
                 {
-                    Usuarios nuevo = new Usuarios();
-                    nuevo.cedula = int.Parse(txtCedula.Text);
-                    nuevo.contraseña = txtContrasena.Text;
-                    nuevo.id_rol = 1;
-                    nuevo.username = txtUsername.Text;
-                    usersbd.Insert(nuevo);
+                    txtNombre.Text = dt.Rows[0].Field<string>(2);
                 }
-                else
-                {
-                    MessageBox.Show(this,
-                    "No existe nungun cliente con ese numero de cedula",
-                    "Error",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Error);
-                }
+                //else
+                //{
+                //    MessageBox.Show(this,
+                //    "No existe nungun cliente con ese numero de cedula",
+                //    "Error",
+                //    MessageBoxButtons.OK,
+                //    MessageBoxIcon.Error);
+                //}
             }
             else
             {

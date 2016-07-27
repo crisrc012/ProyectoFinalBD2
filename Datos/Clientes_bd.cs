@@ -1,5 +1,6 @@
 ﻿using Entidades;
 using MySql.Data.MySqlClient;
+using System;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -16,14 +17,18 @@ namespace Datos
             c = new Conexion(mysql);
         }
 
-        public DataTable Select()
+        public DataTable Select(int? id_cliente = null, int? cedula = null)
         {
-            string sql = "select C.id_cliente, C.cedula, P.nombre, P.apellido1, P.apellido2 " +
-                         "from cliente C inner join persona P on C.cedula = P.cedula;";
+            string sql = "EXEC sp_cliente @id_cliente,@cedula;"; //id_cliente, cedula
+            
             DataTable datos = new DataTable();
             if (!mysql)
             {
+                c.getConexion().conexionMSSQL.Open();
                 SqlCommand cmd = new SqlCommand(sql, c.getConexion().conexionMSSQL);
+                cmd.Parameters.Add("@id_cliente", SqlDbType.Int).Value = (object) id_cliente ?? DBNull.Value;
+                cmd.Parameters.Add("@cedula", SqlDbType.Int).Value = (object) cedula ?? DBNull.Value;
+                cmd.Prepare();
                 SqlDataAdapter adapter = new SqlDataAdapter(cmd);
                 adapter.Fill(datos);
             }
@@ -146,7 +151,5 @@ namespace Datos
             }
         }
     }
-
-
 }
 

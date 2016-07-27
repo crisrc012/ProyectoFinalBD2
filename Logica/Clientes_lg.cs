@@ -19,10 +19,10 @@ namespace Logica
             this.mysql = mysql;
         }
 
-        public DataTable Select()
+        public DataTable Select(int? id_cliente = null, int? cedula = null)
         {
             cbd = new Clientes_bd(mysql);
-            return cbd.Select();
+            return cbd.Select(id_cliente,cedula);
         }
 
         public void Insert(Clientes c)
