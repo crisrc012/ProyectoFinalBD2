@@ -1,4 +1,6 @@
-﻿namespace ProyectoFinalBD2
+﻿using System;
+
+namespace ProyectoFinalBD2
 {
     partial class Selects
     {
@@ -32,6 +34,7 @@
             this.btnClientes = new System.Windows.Forms.Button();
             this.btnProveedor = new System.Windows.Forms.Button();
             this.btnUsuarios = new System.Windows.Forms.Button();
+            this.cbMotor = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSelects)).BeginInit();
             this.SuspendLayout();
             // 
@@ -74,11 +77,23 @@
             this.btnUsuarios.UseVisualStyleBackColor = true;
             this.btnUsuarios.Click += new System.EventHandler(this.btnUsuarios_Click);
             // 
+            // cbMotor
+            // 
+            this.cbMotor.FormattingEnabled = true;
+            this.cbMotor.Items.AddRange(new object[] {
+            "SQL",
+            "MYSQL"});
+            this.cbMotor.Location = new System.Drawing.Point(372, 135);
+            this.cbMotor.Name = "cbMotor";
+            this.cbMotor.Size = new System.Drawing.Size(121, 24);
+            this.cbMotor.TabIndex = 4;
+            // 
             // Selects
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1017, 565);
+            this.Controls.Add(this.cbMotor);
             this.Controls.Add(this.btnUsuarios);
             this.Controls.Add(this.btnProveedor);
             this.Controls.Add(this.btnClientes);
@@ -90,11 +105,14 @@
 
         }
 
+        
+
         #endregion
 
         private System.Windows.Forms.DataGridView dgvSelects;
         private System.Windows.Forms.Button btnClientes;
         private System.Windows.Forms.Button btnProveedor;
         private System.Windows.Forms.Button btnUsuarios;
+        private System.Windows.Forms.ComboBox cbMotor;
     }
 }
