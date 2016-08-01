@@ -44,7 +44,6 @@ namespace ProyectoFinalBD2
                     nuevo.contraseña = txtContrasena.Text;
                     nuevo.id_rol = 1;
                     nuevo.username = txtUsername.Text;
-                    MessageBox.Show(txtCedula.Text + txtContrasena.Text + txtUsername.Text);
                     usersbd.Insert(nuevo);
 
                     txtCedula.Text = "";

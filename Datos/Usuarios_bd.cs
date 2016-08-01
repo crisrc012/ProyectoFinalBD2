@@ -88,7 +88,7 @@ namespace Datos
 
         public void Insert(Usuarios u)
         {
-            string sql = "exc sp_insert_usuario @cedula, @id_rol, @username, @contraseña;";
+            string sql = "exec sp_insert_usuarios @cedula, @id_rol, @username, @contraseña;";
             insert_update(sql, u);
         }
 
