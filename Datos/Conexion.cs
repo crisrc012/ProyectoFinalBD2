@@ -11,7 +11,7 @@ namespace Datos
         public Conexion(bool mysql = false)
         {
             // Parametros de los servidores de base de datos
-            string servidor = @"PAGUIMENDEZ\SQL2014N1";
+            string servidor = @"localhost\U"; // @"PAGUIMENDEZ\SQL2014N1"; 
             string bd = "proyectofinal";
             string usuario = "user1";
             string contrasena = "Abc1234";

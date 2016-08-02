@@ -41,17 +41,19 @@ namespace ProyectoFinalBD2
             // dgvSelects
             // 
             this.dgvSelects.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvSelects.Location = new System.Drawing.Point(51, 165);
+            this.dgvSelects.Location = new System.Drawing.Point(11, 154);
+            this.dgvSelects.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dgvSelects.Name = "dgvSelects";
             this.dgvSelects.RowTemplate.Height = 24;
-            this.dgvSelects.Size = new System.Drawing.Size(883, 362);
+            this.dgvSelects.Size = new System.Drawing.Size(741, 294);
             this.dgvSelects.TabIndex = 0;
             // 
             // btnClientes
             // 
-            this.btnClientes.Location = new System.Drawing.Point(99, 51);
+            this.btnClientes.Location = new System.Drawing.Point(74, 41);
+            this.btnClientes.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnClientes.Name = "btnClientes";
-            this.btnClientes.Size = new System.Drawing.Size(122, 46);
+            this.btnClientes.Size = new System.Drawing.Size(92, 37);
             this.btnClientes.TabIndex = 1;
             this.btnClientes.Text = "Clientes";
             this.btnClientes.UseVisualStyleBackColor = true;
@@ -59,9 +61,10 @@ namespace ProyectoFinalBD2
             // 
             // btnProveedor
             // 
-            this.btnProveedor.Location = new System.Drawing.Point(368, 51);
+            this.btnProveedor.Location = new System.Drawing.Point(276, 41);
+            this.btnProveedor.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnProveedor.Name = "btnProveedor";
-            this.btnProveedor.Size = new System.Drawing.Size(122, 46);
+            this.btnProveedor.Size = new System.Drawing.Size(92, 37);
             this.btnProveedor.TabIndex = 2;
             this.btnProveedor.Text = "Proveedores";
             this.btnProveedor.UseVisualStyleBackColor = true;
@@ -69,9 +72,10 @@ namespace ProyectoFinalBD2
             // 
             // btnUsuarios
             // 
-            this.btnUsuarios.Location = new System.Drawing.Point(579, 51);
+            this.btnUsuarios.Location = new System.Drawing.Point(434, 41);
+            this.btnUsuarios.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnUsuarios.Name = "btnUsuarios";
-            this.btnUsuarios.Size = new System.Drawing.Size(148, 46);
+            this.btnUsuarios.Size = new System.Drawing.Size(111, 37);
             this.btnUsuarios.TabIndex = 3;
             this.btnUsuarios.Text = "Usuarios";
             this.btnUsuarios.UseVisualStyleBackColor = true;
@@ -83,21 +87,23 @@ namespace ProyectoFinalBD2
             this.cbMotor.Items.AddRange(new object[] {
             "SQL",
             "MYSQL"});
-            this.cbMotor.Location = new System.Drawing.Point(372, 135);
+            this.cbMotor.Location = new System.Drawing.Point(276, 129);
+            this.cbMotor.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cbMotor.Name = "cbMotor";
-            this.cbMotor.Size = new System.Drawing.Size(121, 24);
+            this.cbMotor.Size = new System.Drawing.Size(92, 21);
             this.cbMotor.TabIndex = 4;
             // 
             // Selects
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1017, 565);
+            this.ClientSize = new System.Drawing.Size(763, 459);
             this.Controls.Add(this.cbMotor);
             this.Controls.Add(this.btnUsuarios);
             this.Controls.Add(this.btnProveedor);
             this.Controls.Add(this.btnClientes);
             this.Controls.Add(this.dgvSelects);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Selects";
             this.Text = "Selects";
             ((System.ComponentModel.ISupportInitialize)(this.dgvSelects)).EndInit();

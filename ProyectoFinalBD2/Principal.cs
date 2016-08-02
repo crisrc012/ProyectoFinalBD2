@@ -116,7 +116,7 @@ namespace ProyectoFinalBD2
 
         private void verUsuariosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Login mdf = new Login();
+            Selects mdf = new Selects();
             mdf.MdiParent = this;
             mdf.Show();
         }
