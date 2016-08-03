@@ -29,26 +29,44 @@ use ProyectoFinal;
 DROP TRIGGER Udp_Cliente;
 DELIMITER //
 CREATE TRIGGER Udp_Cliente
-AFTER UPDATE ON persona FOR EACH ROW
+
+AFTER UPDATE ON padron_completo FOR EACH ROW
+
 BEGIN
-	DECLARE ced integer;
-	DECLARE id integer;
+	
+DECLARE ced integer;
+	
+DECLARE id integer;
    	
-	SELECT cedula
-	INTO ced    
-	FROM persona 
-	WHERE cedula = NEW.cedula;
 	
-	SELECT id_cliente
-	INTO id
+SELECT cedula
+	
+INTO ced    
+	
+FROM padron_completo 
+	
+WHERE cedula = NEW.cedula;
+	
+	
+SELECT id_cliente
+	
+INTO id
 	FROM cliente
-	WHERE cedula = ced;
 	
-	IF id != 0 THEN 	
-		INSERT INTO bitac_cliente	
-		(id_cliente, evento, fecha, usuario)
-		VALUES (ced, 'UPDATE', NOW(), CURRENT_USER());
-	END IF;
+WHERE cedula = ced;
+	
+	
+IF id != 0 THEN 	
+		
+INSERT INTO bitac_cliente	
+		
+(id_cliente, evento, fecha, usuario)
+		
+VALUES (ced, 'UPDATE', NOW(), CURRENT_USER());
+	
+END IF;
+
 
 END//
+
 DELIMITER ;`proyectofinal`
