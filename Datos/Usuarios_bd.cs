@@ -95,14 +95,10 @@ namespace Datos
                 c.getConexion().conexionMySQL.Open();
                 MySqlCommand cmd = 
                     new MySqlCommand(sql, c.getConexion().conexionMySQL);
-                cmd.Parameters.AddWithValue("@cedula", SqlDbType.Int).Value =
-                    (object)u.cedula ?? DBNull.Value;
-                cmd.Parameters.AddWithValue("@id_rol", SqlDbType.Int).Value =
-                    (object)u.id_rol ?? DBNull.Value;
-                cmd.Parameters.AddWithValue("@username", SqlDbType.VarChar).Value =
-                    (object)u.username ?? DBNull.Value;
-                cmd.Parameters.AddWithValue("@contraseña", SqlDbType.VarChar).Value =
-                    (object)u.contraseña ?? DBNull.Value;
+                cmd.Parameters.AddWithValue("@cedula",(object)u.cedula ?? DBNull.Value);
+                cmd.Parameters.AddWithValue("@id_rol",(object)u.id_rol ?? DBNull.Value);
+                cmd.Parameters.AddWithValue("@username",(object)u.username ?? DBNull.Value);
+                cmd.Parameters.AddWithValue("@contraseña",(object)u.contraseña ?? DBNull.Value);
                 cmd.Prepare();
                 try
                 {
