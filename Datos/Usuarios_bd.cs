@@ -17,19 +17,32 @@ namespace Datos
             c = new Conexion(mysql);
         }
 
-        public DataTable Select()
+        public DataTable Select(int? id_usuarios = null, int? cedula = null, int? id_rol = null, string username = null)
         {
-            string sql = "exec sp_usuarios null,null,null,null;";
             DataTable datos = new DataTable();
             if (!mysql)
             {
+                c.getConexion().conexionMSSQL.Open();
+                string sql = "exec sp_usuarios @id_usuarios,@cedula,@id_rol,@username;";
                 SqlCommand cmd = new SqlCommand(sql, c.getConexion().conexionMSSQL);
+                cmd.Parameters.Add("@id_usuarios", SqlDbType.Int).Value = (object)id_usuarios ?? DBNull.Value;
+                cmd.Parameters.Add("@cedula", SqlDbType.Int).Value = (object)cedula ?? DBNull.Value;
+                cmd.Parameters.Add("@id_rol", SqlDbType.Int).Value = (object)id_rol ?? DBNull.Value;
+                cmd.Parameters.Add("@username", SqlDbType.Int).Value = (object)username ?? DBNull.Value;
+                cmd.Prepare();
                 SqlDataAdapter adapter = new SqlDataAdapter(cmd);
                 adapter.Fill(datos);
             }
             else
             {
+                c.getConexion().conexionMySQL.Open();
+                string sql = "CALL `proyectofinal`.`sp_usuarios`(@id_usuarios,@cedula,@id_rol,@username);";
                 MySqlCommand cmd = new MySqlCommand(sql, c.getConexion().conexionMySQL);
+                cmd.Parameters.AddWithValue("@id_usuarios", SqlDbType.Int).Value = (object)id_usuarios ?? DBNull.Value;
+                cmd.Parameters.AddWithValue("@cedula", SqlDbType.Int).Value = (object)cedula ?? DBNull.Value;
+                cmd.Parameters.AddWithValue("@id_rol", SqlDbType.Int).Value = (object)id_rol ?? DBNull.Value;
+                cmd.Parameters.AddWithValue("@username", SqlDbType.Int).Value = (object)username ?? DBNull.Value;
+                cmd.Prepare();
                 MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
                 adapter.Fill(datos);
             }
