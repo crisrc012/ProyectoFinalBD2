@@ -43,12 +43,9 @@ namespace Datos
                     "CALL `proyectofinal`.`sp_factura`(@id_factura, @id_cliente,@cedula);";
                 MySqlCommand cmd = 
                     new MySqlCommand(sql, c.getConexion().conexionMySQL);
-                cmd.Parameters.AddWithValue("@id_factura", SqlDbType.Int).Value = 
-                    (object)id_factura ?? DBNull.Value;
-                cmd.Parameters.AddWithValue("@id_cliente", SqlDbType.Int).Value = 
-                    (object)id_cliente ?? DBNull.Value;
-                cmd.Parameters.AddWithValue("@cedula", SqlDbType.Int).Value = 
-                    (object)cedula ?? DBNull.Value;
+                cmd.Parameters.AddWithValue("@id_factura", (object)id_factura ?? DBNull.Value);
+                cmd.Parameters.AddWithValue("@id_cliente", (object)id_cliente ?? DBNull.Value);
+                cmd.Parameters.AddWithValue("@cedula", (object)cedula ?? DBNull.Value);
                 cmd.Prepare();
                 MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
                 adapter.Fill(datos);

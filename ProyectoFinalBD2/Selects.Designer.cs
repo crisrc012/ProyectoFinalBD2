@@ -37,8 +37,8 @@ namespace ProyectoFinalBD2
             this.cbMotor = new System.Windows.Forms.ComboBox();
             this.lblMotor = new System.Windows.Forms.Label();
             this.gbClientes = new System.Windows.Forms.GroupBox();
-            this.btnClFacturas = new System.Windows.Forms.Button();
             this.btnClModificar = new System.Windows.Forms.Button();
+            this.btnClFacturas = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSelects)).BeginInit();
             this.gbClientes.SuspendLayout();
             this.SuspendLayout();
@@ -125,15 +125,6 @@ namespace ProyectoFinalBD2
             this.gbClientes.TabStop = false;
             this.gbClientes.Text = "Opciones Cliente";
             // 
-            // btnClFacturas
-            // 
-            this.btnClFacturas.Location = new System.Drawing.Point(77, 33);
-            this.btnClFacturas.Name = "btnClFacturas";
-            this.btnClFacturas.Size = new System.Drawing.Size(75, 23);
-            this.btnClFacturas.TabIndex = 0;
-            this.btnClFacturas.Text = "Ver Facturas";
-            this.btnClFacturas.UseVisualStyleBackColor = true;
-            // 
             // btnClModificar
             // 
             this.btnClModificar.Location = new System.Drawing.Point(158, 33);
@@ -143,6 +134,16 @@ namespace ProyectoFinalBD2
             this.btnClModificar.Text = "Modificar";
             this.btnClModificar.UseVisualStyleBackColor = true;
             this.btnClModificar.Click += new System.EventHandler(this.btnClModificar_Click);
+            // 
+            // btnClFacturas
+            // 
+            this.btnClFacturas.Location = new System.Drawing.Point(77, 33);
+            this.btnClFacturas.Name = "btnClFacturas";
+            this.btnClFacturas.Size = new System.Drawing.Size(75, 23);
+            this.btnClFacturas.TabIndex = 0;
+            this.btnClFacturas.Text = "Ver Facturas";
+            this.btnClFacturas.UseVisualStyleBackColor = true;
+            this.btnClFacturas.Click += new System.EventHandler(this.btnClFacturas_Click);
             // 
             // Selects
             // 
@@ -158,6 +159,7 @@ namespace ProyectoFinalBD2
             this.Controls.Add(this.dgvSelects);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Selects";
+            this.ShowIcon = false;
             this.Text = "Selects";
             ((System.ComponentModel.ISupportInitialize)(this.dgvSelects)).EndInit();
             this.gbClientes.ResumeLayout(false);

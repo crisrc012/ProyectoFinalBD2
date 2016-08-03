@@ -8,7 +8,8 @@ namespace ProyectoFinalBD2
 {
     public partial class Modificar_Cliente : Form
     {
-        public Modificar_Cliente(Clientes cl = null)
+        private bool mysql = false;
+        public Modificar_Cliente(Clientes cl = null, string cb = null)
         {
             InitializeComponent();
             if (cl != null)
@@ -17,6 +18,15 @@ namespace ProyectoFinalBD2
                 txtNombre.Text = cl.nombre;
                 txtApellido1.Text = cl.apellido1;
                 txtApellido2.Text = cl.apellido2;
+            }
+            if(cb == "MySQL")
+            {
+                mysql = true;
+                cbMotor.SelectedIndex = 1;
+            }
+            else
+            {
+                cbMotor.SelectedIndex = 0;
             }
         }
 
@@ -27,7 +37,7 @@ namespace ProyectoFinalBD2
             c.nombre = txtNombre.Text;
             c.apellido1 = txtApellido1.Text;
             c.apellido2 = txtApellido2.Text;
-            Clientes_lg clg = new Clientes_lg();
+            Clientes_lg clg = new Clientes_lg(mysql);
             clg.Update(c);
         }
 
@@ -35,7 +45,7 @@ namespace ProyectoFinalBD2
         {
             if (txtCedula.Text != string.Empty)
             {
-                Clientes_lg clg = new Clientes_lg();
+                Clientes_lg clg = new Clientes_lg(mysql);
                 DataTable dt = clg.Select(null, int.Parse(txtCedula.Text));
                 if (dt.Rows.Count > 0)
                 {
@@ -59,6 +69,23 @@ namespace ProyectoFinalBD2
                     "Error",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
+            }
+        }
+
+        private void Modificar_Cliente_Load(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void cbMotor_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbMotor.SelectedIndex == 0)
+            {
+                mysql = false;
+            }
+            else
+            {
+                mysql = true;
             }
         }
     }

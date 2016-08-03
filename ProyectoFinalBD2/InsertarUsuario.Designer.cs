@@ -147,6 +147,7 @@
             this.Controls.Add(this.btnInsertar);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "InsertarUsuario";
+            this.ShowIcon = false;
             this.Text = "Insertar Usuario";
             this.ResumeLayout(false);
             this.PerformLayout();

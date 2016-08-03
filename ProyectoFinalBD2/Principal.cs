@@ -123,9 +123,29 @@ namespace ProyectoFinalBD2
 
         private void verFacturasToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            VerFacturas mdf = new VerFacturas();
-            mdf.MdiParent = this; 
-            mdf.Show();
+            try
+            {
+                string text = Microsoft.VisualBasic.Interaction.InputBox("Digite la cédula del cliente:", "Ver Facturas");
+                if (text == string.Empty)
+                {
+                    MessageBox.Show(this,"La cédula no puede estar vacía.",
+                        "Error",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+                    return;
+                }
+                int cedula = int.Parse(text);
+                VerFacturas mdf = new VerFacturas(cedula);
+                mdf.MdiParent = this;
+                mdf.Show();
+            }
+            catch
+            {
+                MessageBox.Show(this, "La cédula no puede contener letras.",
+                    "Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
         }
         
         private void insertarUsuariosToolStripMenuItem_Click(object sender, EventArgs e)

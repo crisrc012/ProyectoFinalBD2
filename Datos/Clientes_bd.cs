@@ -9,7 +9,7 @@ namespace Datos
     public class Clientes_bd
     {
         private Conexion c;
-        bool mysql;
+        private bool mysql;
 
         public Clientes_bd(bool mysql = false)
         {
@@ -36,8 +36,8 @@ namespace Datos
                 c.getConexion().conexionMySQL.Open();
                 string sql = "CALL `proyectofinal`.`sp_cliente`(@id_cliente,@cedula);";
                 MySqlCommand cmd = new MySqlCommand(sql, c.getConexion().conexionMySQL);
-                cmd.Parameters.AddWithValue("@id_cliente", SqlDbType.Int).Value = (object)id_cliente ?? DBNull.Value;
-                cmd.Parameters.AddWithValue("@cedula", SqlDbType.Int).Value = (object)cedula ?? DBNull.Value;
+                cmd.Parameters.AddWithValue("@id_cliente", (object)id_cliente ?? DBNull.Value);
+                cmd.Parameters.AddWithValue("@cedula", (object)cedula ?? DBNull.Value);
                 cmd.Prepare();
                 MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
                 adapter.Fill(datos);
@@ -50,11 +50,16 @@ namespace Datos
             if (!mysql)
             {
                 c.getConexion().conexionMSSQL.Open();
-                SqlCommand cmd = new SqlCommand(sql, c.getConexion().conexionMSSQL);
-                cmd.Parameters.Add("@cedula", SqlDbType.Int).Value = (object)cl.cedula ?? DBNull.Value;
-                cmd.Parameters.Add("@nombre", SqlDbType.VarChar, 50).Value = (object)cl.nombre ?? DBNull.Value;
-                cmd.Parameters.Add("@apellido1", SqlDbType.VarChar, 50).Value = (object)cl.apellido1 ?? DBNull.Value;
-                cmd.Parameters.Add("@apellido2", SqlDbType.VarChar, 50).Value = (object)cl.apellido2 ?? DBNull.Value;
+                SqlCommand cmd = 
+                    new SqlCommand(sql, c.getConexion().conexionMSSQL);
+                cmd.Parameters.Add("@cedula", SqlDbType.Int).Value = 
+                    (object)cl.cedula ?? DBNull.Value;
+                cmd.Parameters.Add("@nombre", SqlDbType.VarChar, 50).Value = 
+                    (object)cl.nombre ?? DBNull.Value;
+                cmd.Parameters.Add("@apellido1", SqlDbType.VarChar, 50).Value = 
+                    (object)cl.apellido1 ?? DBNull.Value;
+                cmd.Parameters.Add("@apellido2", SqlDbType.VarChar, 50).Value = 
+                    (object)cl.apellido2 ?? DBNull.Value;
                 cmd.Prepare();
                 try
                 {
@@ -72,12 +77,12 @@ namespace Datos
             else
             {
                 c.getConexion().conexionMySQL.Open();
-                MySqlCommand cmd = new MySqlCommand(null, c.getConexion().conexionMySQL);
-                cmd.CommandText = sql;
-                cmd.Parameters.AddWithValue("@cedula", SqlDbType.Int).Value = cl.cedula;
-                cmd.Parameters.AddWithValue("@nombre", SqlDbType.Int).Value = cl.nombre;
-                cmd.Parameters.AddWithValue("@apellido1", SqlDbType.VarChar).Value = cl.apellido1;
-                cmd.Parameters.AddWithValue("@apellido2", SqlDbType.VarChar).Value = cl.apellido2;
+                MySqlCommand cmd = 
+                    new MySqlCommand(sql, c.getConexion().conexionMySQL);
+                cmd.Parameters.AddWithValue("@cedula", (object)cl.cedula ?? DBNull.Value);
+                cmd.Parameters.AddWithValue("@nombre", (object)cl.nombre ?? DBNull.Value);
+                cmd.Parameters.AddWithValue("@apellido1", (object)cl.apellido1 ?? DBNull.Value);
+                cmd.Parameters.AddWithValue("@apellido2", (object)cl.apellido2 ?? DBNull.Value);
                 cmd.Prepare();
                 try
                 {
@@ -102,7 +107,15 @@ namespace Datos
 
         public void Update(Clientes cl)
         {
-            string sql = "exec sp_update_persona @cedula,@nombre,@apellido1,@apellido2;";
+            string sql = null;
+            if (!mysql)
+            {
+                sql = "EXEC sp_update_persona @cedula,@nombre,@apellido1,@apellido2;";
+            }
+            else
+            {
+                sql = "CALL `proyectofinal`.`sp_update_persona`(@cedula,@nombre,@apellido1,@apellido2);";
+            }
             insert_update(sql, cl);
         }
 
@@ -134,7 +147,7 @@ namespace Datos
                 c.getConexion().conexionMySQL.Open();
                 MySqlCommand cmd = new MySqlCommand(null, c.getConexion().conexionMySQL);
                 cmd.CommandText = sql;
-                cmd.Parameters.AddWithValue("@id_cliente", SqlDbType.Int).Value = id;
+                cmd.Parameters.AddWithValue("@id_cliente", id);
                 cmd.Prepare();
                 try
                 {
