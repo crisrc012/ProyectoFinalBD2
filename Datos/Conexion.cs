@@ -19,11 +19,11 @@ namespace Datos
             // Conexion para SQL Server
             if (!mysql)
             {
-                cadenaConexion = "Data Source = " + servidor 
-                    + "; Initial Catalog =" + bd 
-                    + "; Integrated Security = True";
-
-
+                cadenaConexion = "Data Source=" + servidor 
+                    + "; Initial Catalog=" + bd 
+                    + "; User Id=" + usuario 
+                    + "; Password=" + contrasena 
+                    + ";" ;
                 c.conexionMSSQL = new SqlConnection(cadenaConexion);
             }
             // Conexion para MySQL
