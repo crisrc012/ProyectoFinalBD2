@@ -109,9 +109,7 @@ namespace ProyectoFinalBD2
 
         private void modificarClienteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //VerClientes mdf = new VerClientes();
-            //mdf.MdiParent = this;  
-            //mdf.Show();
+            
         }
 
         private void verUsuariosToolStripMenuItem_Click(object sender, EventArgs e)
@@ -123,9 +121,7 @@ namespace ProyectoFinalBD2
 
         private void verProveedoresToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            VerProveedores mdf = new VerProveedores();
-            mdf.MdiParent = this;  
-            mdf.Show();
+            
         }
 
         private void verFacturasToolStripMenuItem_Click(object sender, EventArgs e)

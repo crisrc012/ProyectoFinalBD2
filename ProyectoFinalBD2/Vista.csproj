@@ -99,12 +99,6 @@
     <Compile Include="VerFacturas.Designer.cs">
       <DependentUpon>VerFacturas.cs</DependentUpon>
     </Compile>
-    <Compile Include="VerProveedores.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="VerProveedores.Designer.cs">
-      <DependentUpon>VerProveedores.cs</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="Modificar_Cliente.resx">
       <DependentUpon>Modificar_Cliente.cs</DependentUpon>
     </EmbeddedResource>
@@ -129,9 +123,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="VerFacturas.resx">
       <DependentUpon>VerFacturas.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="VerProveedores.resx">
-      <DependentUpon>VerProveedores.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="ClassDiagram1.cd" />
     <None Include="Properties\Settings.settings">
