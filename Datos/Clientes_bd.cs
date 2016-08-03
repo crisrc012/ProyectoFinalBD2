@@ -9,7 +9,7 @@ namespace Datos
     public class Clientes_bd
     {
         private Conexion c;
-        bool mysql;
+        private bool mysql;
 
         public Clientes_bd(bool mysql = false)
         {
@@ -102,7 +102,15 @@ namespace Datos
 
         public void Update(Clientes cl)
         {
-            string sql = "exec sp_update_persona @cedula,@nombre,@apellido1,@apellido2;";
+            string sql = null;
+            if (!mysql)
+            {
+                sql = "EXEC sp_update_persona @cedula,@nombre,@apellido1,@apellido2;";
+            }
+            else
+            {
+                sql = "CALL `proyectofinal`.`sp_update_persona`(@cedula,@nombre,@apellido1,@apellido2);";
+            }
             insert_update(sql, cl);
         }
 

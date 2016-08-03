@@ -8,7 +8,8 @@ namespace ProyectoFinalBD2
 {
     public partial class Modificar_Cliente : Form
     {
-        public Modificar_Cliente(Clientes cl = null)
+        private bool mysql;
+        public Modificar_Cliente(Clientes cl = null, bool mysql = false)
         {
             InitializeComponent();
             if (cl != null)
@@ -18,6 +19,11 @@ namespace ProyectoFinalBD2
                 txtApellido1.Text = cl.apellido1;
                 txtApellido2.Text = cl.apellido2;
             }
+            if (mysql)
+            {
+                cbMotor.SelectedItem = "MySQL";
+            }
+            this.mysql = mysql;
         }
 
         private void btnModificar_Click(object sender, EventArgs e)
@@ -35,7 +41,7 @@ namespace ProyectoFinalBD2
         {
             if (txtCedula.Text != string.Empty)
             {
-                Clientes_lg clg = new Clientes_lg();
+                Clientes_lg clg = new Clientes_lg(mysql);
                 DataTable dt = clg.Select(null, int.Parse(txtCedula.Text));
                 if (dt.Rows.Count > 0)
                 {
@@ -59,6 +65,23 @@ namespace ProyectoFinalBD2
                     "Error",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
+            }
+        }
+
+        private void Modificar_Cliente_Load(object sender, EventArgs e)
+        {
+            cbMotor.SelectedIndex = 0;
+        }
+
+        private void cbMotor_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbMotor.SelectedItem.ToString() == "SQL Server")
+            {
+                mysql = false;
+            }
+            else
+            {
+                mysql = true;
             }
         }
     }

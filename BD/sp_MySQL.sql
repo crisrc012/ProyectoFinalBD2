@@ -277,3 +277,18 @@ AND cliente.cedula = IFNULL(cedula,cliente.cedula);
 END//
 
 DELIMITER ;
+
+-- SP UPDATE PERSONA
+DELIMITER //
+create procedure sp_update_persona
+(in cedula int
+,in nombre varchar(50)
+,in apellido1 varchar(50)
+,in apellido2 varchar(50))
+begin
+	update ProyectoFinal.PADRON_COMPLETO
+	set ProyectoFinal.PADRON_COMPLETO.Nombre = nombre,
+	ProyectoFinal.PADRON_COMPLETO.`1.Apellido` = apellido1,
+	ProyectoFinal.PADRON_COMPLETO.`2.Apellido` = apellido2
+	where ProyectoFinal.PADRON_COMPLETO.Cedula = cedula;
+end//
