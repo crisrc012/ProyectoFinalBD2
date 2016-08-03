@@ -176,19 +176,19 @@ CREATE PROCEDURE sp_cliente
 BEGIN
 	
 
-SELECT cliente.id_cliente AS cliente
+SELECT cliente.id_cliente AS "# Cliente"
 		
 
-,cliente.cedula AS Cédula
+,cliente.cedula AS "Cédula"
 		
 
-,PADRON_COMPLETO.Nombre AS Nombre
+,PADRON_COMPLETO.Nombre AS "Nombre"
 		
 
-,PADRON_COMPLETO.Apellido1 AS Apellido1
+,PADRON_COMPLETO.`1.Apellido` AS "Apellido 1"
 		
 
-,PADRON_COMPLETO.Apellido2 AS Apellido2 
+,PADRON_COMPLETO.`2.Apellido` AS "Apellido 2"
 		
 
 ,CASE persona.activo
