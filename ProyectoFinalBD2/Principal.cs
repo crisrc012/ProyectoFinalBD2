@@ -102,19 +102,23 @@ namespace ProyectoFinalBD2
 
         private void modificarClienteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+            Selects mdf = new Selects("Clientes");
+            mdf.MdiParent = this;
+            mdf.Show();
         }
 
         private void verUsuariosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Selects mdf = new Selects();
+            Selects mdf = new Selects("Usuarios");
             mdf.MdiParent = this;
             mdf.Show();
         }
 
         private void verProveedoresToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+            Selects mdf = new Selects("Proveedores");
+            mdf.MdiParent = this;
+            mdf.Show();
         }
 
         private void verFacturasToolStripMenuItem_Click(object sender, EventArgs e)

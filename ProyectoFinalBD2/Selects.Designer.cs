@@ -32,7 +32,7 @@ namespace ProyectoFinalBD2
         {
             this.dgvSelects = new System.Windows.Forms.DataGridView();
             this.btnClientes = new System.Windows.Forms.Button();
-            this.btnProveedor = new System.Windows.Forms.Button();
+            this.btnProveedores = new System.Windows.Forms.Button();
             this.btnUsuarios = new System.Windows.Forms.Button();
             this.cbMotor = new System.Windows.Forms.ComboBox();
             this.lblMotor = new System.Windows.Forms.Label();
@@ -66,16 +66,16 @@ namespace ProyectoFinalBD2
             this.btnClientes.UseVisualStyleBackColor = true;
             this.btnClientes.Click += new System.EventHandler(this.btnClientes_Click);
             // 
-            // btnProveedor
+            // btnProveedores
             // 
-            this.btnProveedor.Location = new System.Drawing.Point(111, 39);
-            this.btnProveedor.Margin = new System.Windows.Forms.Padding(2);
-            this.btnProveedor.Name = "btnProveedor";
-            this.btnProveedor.Size = new System.Drawing.Size(92, 37);
-            this.btnProveedor.TabIndex = 2;
-            this.btnProveedor.Text = "Proveedores";
-            this.btnProveedor.UseVisualStyleBackColor = true;
-            this.btnProveedor.Click += new System.EventHandler(this.button2_Click);
+            this.btnProveedores.Location = new System.Drawing.Point(111, 39);
+            this.btnProveedores.Margin = new System.Windows.Forms.Padding(2);
+            this.btnProveedores.Name = "btnProveedores";
+            this.btnProveedores.Size = new System.Drawing.Size(92, 37);
+            this.btnProveedores.TabIndex = 2;
+            this.btnProveedores.Text = "Proveedores";
+            this.btnProveedores.UseVisualStyleBackColor = true;
+            this.btnProveedores.Click += new System.EventHandler(this.button2_Click);
             // 
             // btnUsuarios
             // 
@@ -98,7 +98,7 @@ namespace ProyectoFinalBD2
             this.cbMotor.Location = new System.Drawing.Point(139, 6);
             this.cbMotor.Margin = new System.Windows.Forms.Padding(2);
             this.cbMotor.Name = "cbMotor";
-            this.cbMotor.Size = new System.Drawing.Size(138, 21);
+            this.cbMotor.Size = new System.Drawing.Size(179, 21);
             this.cbMotor.TabIndex = 4;
             // 
             // lblMotor
@@ -118,7 +118,7 @@ namespace ProyectoFinalBD2
             this.Controls.Add(this.lblMotor);
             this.Controls.Add(this.cbMotor);
             this.Controls.Add(this.btnUsuarios);
-            this.Controls.Add(this.btnProveedor);
+            this.Controls.Add(this.btnProveedores);
             this.Controls.Add(this.btnClientes);
             this.Controls.Add(this.dgvSelects);
             this.Margin = new System.Windows.Forms.Padding(2);
@@ -136,7 +136,7 @@ namespace ProyectoFinalBD2
 
         private System.Windows.Forms.DataGridView dgvSelects;
         private System.Windows.Forms.Button btnClientes;
-        private System.Windows.Forms.Button btnProveedor;
+        private System.Windows.Forms.Button btnProveedores;
         private System.Windows.Forms.Button btnUsuarios;
         private System.Windows.Forms.ComboBox cbMotor;
         private System.Windows.Forms.Label lblMotor;
