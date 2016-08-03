@@ -161,74 +161,28 @@ DELIMITER ;
 
 -- sp leer cliente
 DELIMITER //
-
-
 CREATE PROCEDURE sp_cliente
-	
-
 (IN id_cliente INT
-	
-
 ,IN cedula INT)
-
-
 BEGIN
-	
-
 SELECT cliente.id_cliente AS "# Cliente"
-		
-
 ,cliente.cedula AS "Cédula"
-		
-
 ,PADRON_COMPLETO.Nombre AS "Nombre"
-		
-
 ,PADRON_COMPLETO.`1.Apellido` AS "Apellido 1"
-		
-
 ,PADRON_COMPLETO.`2.Apellido` AS "Apellido 2"
-		
-
 ,CASE persona.activo
-			
-
 WHEN 0 THEN 'No'
-			
-
 WHEN 1 THEN 'Sí'
-			
-
 ELSE NULL
-		
-
 END AS Activo
-	
-
 FROM cliente
-	
-
 INNER JOIN persona
-	
-
 ON cliente.cedula = persona.cedula
-	
-
 INNER JOIN PADRON_COMPLETO
-	
-
 ON PADRON_COMPLETO.Cedula = persona.cedula
-	
-
 WHERE cliente.id_cliente = IFNULL(@id_cliente.,cliente.id_cliente)
-	
-
 and cliente.cedula = IFNULL(@cedula,cliente.cedula);
-
-
 END//
-
-
 DELIMITER ;
 
 -- SP CONSUMO FACTURA
@@ -273,6 +227,71 @@ WHERE factura.id_factura = IFNULL(id_factura,factura.id_factura)
 AND factura.id_cliente = IFNULL(id_cliente,factura.id_cliente)
 	
 AND cliente.cedula = IFNULL(cedula,cliente.cedula);
+
+END//
+
+DELIMITER ;
+
+--sp insertar usuarios
+DELIMITER //
+
+CREATE PROCEDURE sp_insert_usuarios
+	 
+(IN cedula INT
+	
+,IN id_rol INT
+	
+,IN username VARCHAR(10)
+	
+,IN contraseña VARCHAR(15))
+
+BEGIN
+	
+DECLARE total TINYINT;
+	
+DECLARE exist TINYINT;
+    
+	
+SELECT COUNT(*) 
+    
+INTO total
+	
+FROM PADRON_COMPLETO
+	
+WHERE PADRON_COMPLETO.Cedula = cedula;
+	
+	
+SELECT COUNT(*) 
+    
+INTO exist
+	
+FROM persona
+	
+WHERE persona.Cedula = cedula;
+
+	
+IF (total = 0) THEN	
+		
+SELECT 'La cédula no existe dentro del Padrón Electoral, no se puede crear el usuario.' as mensaje;
+	
+ELSE
+		
+INSERT INTO usuarios
+		
+(cedula,id_rol,username,contraseña)
+		
+VALUES(cedula,id_rol,username,contraseña);
+		
+IF (exist = 0) THEN
+			
+INSERT INTO persona
+			
+(cedula,activo) VALUES (cedula,1);
+		
+END IF;
+	
+END IF;
+
 
 END//
 
