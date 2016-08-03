@@ -155,13 +155,21 @@ create table bitac_cliente (
 );
 
 -- MySQL user
-<<<<<<< HEAD
-CREATE USER 'user1'@'localhost'
-=======
+CREATE USER 'user1'@'localhost';
 CREATE USER user1
->>>>>>> origin/master
 IDENTIFIED BY 'Abc1234';
 GRANT SELECT ON proyectofinal.usuarios
 TO 'user1'@'localhost';
 GRANT SELECT ON proyectofinal.persona
 TO 'user1'@'localhost';
+SET PASSWORD FOR 'user1'@'localhost' = PASSWORD('Abc1234'); -- Si no se establece la contraseña de esta forma no permite conectar al usuario, ver: https://dev.mysql.com/doc/refman/5.5/en/problems-connecting.html
+GRANT EXECUTE ON PROCEDURE `proyectofinal`.`sp_usuarios`
+    TO 'user1'@'localhost';
+GRANT EXECUTE ON PROCEDURE `proyectofinal`.`sp_cliente`
+    TO 'user1'@'localhost';
+GRANT EXECUTE ON PROCEDURE `proyectofinal`.`sp_proveedor`
+    TO 'user1'@'localhost';
+GRANT EXECUTE ON PROCEDURE `proyectofinal`.`sp_factura`
+    TO 'user1'@'localhost';
+GRANT EXECUTE ON PROCEDURE `proyectofinal`.`sp_update_persona`
+    TO 'user1'@'localhost';

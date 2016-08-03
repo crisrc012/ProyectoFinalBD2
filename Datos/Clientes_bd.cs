@@ -34,7 +34,7 @@ namespace Datos
             else
             {
                 c.getConexion().conexionMySQL.Open();
-                string sql = "exec dbo.sp_cliente(null,null)";
+                string sql = "CALL `proyectofinal`.`sp_cliente`(null, null);";
                 MySqlCommand cmd = new MySqlCommand(sql, c.getConexion().conexionMySQL);
                 cmd.Parameters.AddWithValue("@id_cliente", SqlDbType.Int).Value = (object)id_cliente ?? DBNull.Value;
                 cmd.Parameters.AddWithValue("@cedula", SqlDbType.Int).Value = (object)cedula ?? DBNull.Value;

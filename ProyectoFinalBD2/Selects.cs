@@ -29,23 +29,21 @@ namespace ProyectoFinalBD2
                 MessageBox.Show(this, "Seleccione un motor de base de datos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            if (cbMotor.SelectedItem.ToString() == "SQL")
+            if (cbMotor.SelectedItem.ToString() == "SQL Server")
             {
                 Logica.Clientes_lg clg = new Logica.Clientes_lg();
                 dgvSelects.DataSource = clg.Select();
-            }else if(cbMotor.SelectedItem.ToString() == "MySQL")
+            }
+            else if(cbMotor.SelectedItem.ToString() == "MySQL")
             {
                 Logica.Clientes_lg clg = new Logica.Clientes_lg(true);
                 dgvSelects.DataSource = clg.Select();
-            }else if (cbMotor.SelectedItem==null)
-            {
-                MessageBox.Show("tiene que escoger un motor", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (cbMotor.SelectedItem.ToString() == "SQL")
+            if (cbMotor.SelectedItem.ToString() == "SQL Server")
             {
                 dgvSelects.Rows.Clear();
                 string query = "exec dbo.sp_proveedor(null,null)";
@@ -75,7 +73,7 @@ namespace ProyectoFinalBD2
 
         private void btnUsuarios_Click(object sender, EventArgs e)
         {
-            if (cbMotor.SelectedItem.ToString() == "SQL")
+            if (cbMotor.SelectedItem.ToString() == "SQL Server")
             {
                 dgvSelects.Rows.Clear();
                 string query = "exec dbo.sp_usuarios(null,null)";
