@@ -19,6 +19,7 @@ namespace ProyectoFinalBD2
 
         private void VerFacturas_Load(object sender, EventArgs e)
         {
+            Text += " del cliente " + cedula;
             Logica.Factura_lg clg = new Logica.Factura_lg(mysql);
             dGV.DataSource = clg.Select(null,null,cedula);
         }
