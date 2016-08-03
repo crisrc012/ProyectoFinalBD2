@@ -121,9 +121,14 @@ namespace ProyectoFinalBD2
             cl.nombre = dgvSelects.Rows[dgvSelects.SelectedRows[0].Index].Cells[2].Value.ToString();
             cl.apellido1 = dgvSelects.Rows[dgvSelects.SelectedRows[0].Index].Cells[3].Value.ToString();
             cl.apellido2 = dgvSelects.Rows[dgvSelects.SelectedRows[0].Index].Cells[4].Value.ToString();
-            Modificar_Cliente mdf = new Modificar_Cliente(cl);
+            Modificar_Cliente mdf = new Modificar_Cliente(cl,cbMotor.SelectedItem.ToString());
             mdf.MdiParent = MdiParent;
             mdf.Show();
+        }
+
+        private void btnClFacturas_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

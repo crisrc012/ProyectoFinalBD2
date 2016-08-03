@@ -144,6 +144,7 @@
             // 
             // cbMotor
             // 
+            this.cbMotor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbMotor.FormattingEnabled = true;
             this.cbMotor.Items.AddRange(new object[] {
             "SQL Server",

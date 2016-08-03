@@ -37,14 +37,14 @@
             this.dGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dGV.Location = new System.Drawing.Point(12, 12);
             this.dGV.Name = "dGV";
-            this.dGV.Size = new System.Drawing.Size(260, 237);
+            this.dGV.Size = new System.Drawing.Size(496, 237);
             this.dGV.TabIndex = 0;
             // 
             // VerFacturas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 261);
+            this.ClientSize = new System.Drawing.Size(520, 261);
             this.Controls.Add(this.dGV);
             this.Name = "VerFacturas";
             this.Text = "VerFacturas";

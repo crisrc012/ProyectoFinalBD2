@@ -8,8 +8,8 @@ namespace ProyectoFinalBD2
 {
     public partial class Modificar_Cliente : Form
     {
-        private bool mysql;
-        public Modificar_Cliente(Clientes cl = null, bool mysql = false)
+        private bool mysql = false;
+        public Modificar_Cliente(Clientes cl = null, string cb = null)
         {
             InitializeComponent();
             if (cl != null)
@@ -19,11 +19,15 @@ namespace ProyectoFinalBD2
                 txtApellido1.Text = cl.apellido1;
                 txtApellido2.Text = cl.apellido2;
             }
-            if (mysql)
+            if(cb == "MySQL")
             {
-                cbMotor.SelectedItem = "MySQL";
+                mysql = true;
+                cbMotor.SelectedIndex = 1;
             }
-            this.mysql = mysql;
+            else
+            {
+                cbMotor.SelectedIndex = 0;
+            }
         }
 
         private void btnModificar_Click(object sender, EventArgs e)
@@ -33,7 +37,7 @@ namespace ProyectoFinalBD2
             c.nombre = txtNombre.Text;
             c.apellido1 = txtApellido1.Text;
             c.apellido2 = txtApellido2.Text;
-            Clientes_lg clg = new Clientes_lg();
+            Clientes_lg clg = new Clientes_lg(mysql);
             clg.Update(c);
         }
 
@@ -70,12 +74,12 @@ namespace ProyectoFinalBD2
 
         private void Modificar_Cliente_Load(object sender, EventArgs e)
         {
-            cbMotor.SelectedIndex = 0;
+            
         }
 
         private void cbMotor_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cbMotor.SelectedItem.ToString() == "SQL Server")
+            if (cbMotor.SelectedIndex == 0)
             {
                 mysql = false;
             }
