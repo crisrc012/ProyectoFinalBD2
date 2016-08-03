@@ -79,12 +79,6 @@
     <Compile Include="InsertarUsuario.Designer.cs">
       <DependentUpon>InsertarUsuario.cs</DependentUpon>
     </Compile>
-    <Compile Include="Login.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Login.Designer.cs">
-      <DependentUpon>Login.cs</DependentUpon>
-    </Compile>
     <Compile Include="Principal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -98,18 +92,6 @@
     </Compile>
     <Compile Include="Selects.Designer.cs">
       <DependentUpon>Selects.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Tabla.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Tabla.Designer.cs">
-      <DependentUpon>Tabla.cs</DependentUpon>
-    </Compile>
-    <Compile Include="VerClientes.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="VerClientes.Designer.cs">
-      <DependentUpon>VerClientes.cs</DependentUpon>
     </Compile>
     <Compile Include="VerFacturas.cs">
       <SubType>Form</SubType>
@@ -129,9 +111,6 @@
     <EmbeddedResource Include="InsertarUsuario.resx">
       <DependentUpon>InsertarUsuario.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Login.resx">
-      <DependentUpon>Login.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Principal.resx">
       <DependentUpon>Principal.cs</DependentUpon>
     </EmbeddedResource>
@@ -147,12 +126,6 @@
     </Compile>
     <EmbeddedResource Include="Selects.resx">
       <DependentUpon>Selects.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Tabla.resx">
-      <DependentUpon>Tabla.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="VerClientes.resx">
-      <DependentUpon>VerClientes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VerFacturas.resx">
       <DependentUpon>VerFacturas.cs</DependentUpon>

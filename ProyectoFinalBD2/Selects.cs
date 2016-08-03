@@ -1,14 +1,8 @@
 ﻿using Datos;
 using MySql.Data.MySqlClient;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ProyectoFinalBD2
@@ -43,39 +37,32 @@ namespace ProyectoFinalBD2
 
         private void button2_Click(object sender, EventArgs e)
         {
+            if (cbMotor.SelectedItem == null)
+            {
+                MessageBox.Show(this, "Seleccione un motor de base de datos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             if (cbMotor.SelectedItem.ToString() == "SQL Server")
             {
-                dgvSelects.Rows.Clear();
-                string query = "exec dbo.sp_proveedor(null,null)";
-                SqlCommand cmd = new SqlCommand(query, c.getConexion().conexionMSSQL);
-                SqlDataReader dtr = cmd.ExecuteReader();
-                SqlDataAdapter dta = new SqlDataAdapter(cmd);
-                DataTable dt = new DataTable();
-                dta.Fill(dt);
-                dgvSelects.DataSource = dt;
+                Logica.Proveedores_lg clg = new Logica.Proveedores_lg();
+                dgvSelects.DataSource = clg.Select();
             }
             else if (cbMotor.SelectedItem.ToString() == "MySQL")
             {
-                dgvSelects.Rows.Clear();
-                string query = "exec dbo.sp_proveedor(null,null)";
-                MySqlCommand mcmd = new MySqlCommand(query, c.getConexion().conexionMySQL);
-                MySqlDataReader mdtr = mcmd.ExecuteReader();
-                MySqlDataAdapter dta = new MySqlDataAdapter(mcmd);
-                DataTable dt = new DataTable();
-                dta.Fill(dt);
-                dgvSelects.DataSource = dt;
-            }
-            else if (cbMotor.SelectedItem == null)
-            {
-                MessageBox.Show("tiene que escoger un motor", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Logica.Proveedores_lg clg = new Logica.Proveedores_lg(true);
+                dgvSelects.DataSource = clg.Select();
             }
         }
 
         private void btnUsuarios_Click(object sender, EventArgs e)
         {
+            if (cbMotor.SelectedItem == null)
+            {
+                MessageBox.Show(this, "Seleccione un motor de base de datos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             if (cbMotor.SelectedItem.ToString() == "SQL Server")
             {
-                dgvSelects.Rows.Clear();
                 string query = "exec dbo.sp_usuarios(null,null)";
                 SqlCommand cmd = new SqlCommand(query, c.getConexion().conexionMSSQL);
                 SqlDataReader dtr = cmd.ExecuteReader();
@@ -86,7 +73,6 @@ namespace ProyectoFinalBD2
             }
             else if (cbMotor.SelectedItem.ToString() == "MySQL")
             {
-                dgvSelects.Rows.Clear();
                 string query = "exec dbo.sp_usuarios(null,null)";
                 MySqlCommand mcmd = new MySqlCommand(query, c.getConexion().conexionMySQL);
                 MySqlDataReader mdtr = mcmd.ExecuteReader();
@@ -95,12 +81,7 @@ namespace ProyectoFinalBD2
                 dta.Fill(dt);
                 dgvSelects.DataSource = dt;
             }
-            else if (cbMotor.SelectedItem == null)
-            {
-                MessageBox.Show("tiene que escoger un motor", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
         }
-
     }
 }
 

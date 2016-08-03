@@ -109,9 +109,9 @@ namespace ProyectoFinalBD2
 
         private void modificarClienteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            VerClientes mdf = new VerClientes();
-            mdf.MdiParent = this;  
-            mdf.Show();
+            //VerClientes mdf = new VerClientes();
+            //mdf.MdiParent = this;  
+            //mdf.Show();
         }
 
         private void verUsuariosToolStripMenuItem_Click(object sender, EventArgs e)

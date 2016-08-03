@@ -116,15 +116,15 @@ CREATE PROCEDURE sp_proveedor
 
 BEGIN
 	
-SELECT proveedor.id_proveedor AS Proveedor
+SELECT proveedor.id_proveedor AS "# Proveedor"
 		
-,proveedor.cedula AS Cédula
+,proveedor.cedula AS "Cédula"
 		
-,nombre_completo(persona.cedula) AS NombreCompleto
+,nombre_completo(persona.cedula) AS "Nombre Completo"
 		
-,compania.nombre AS Compañía
+,compania.nombre AS "Compañía"
 		
-,proveedor.cargo AS Cargo
+,proveedor.cargo AS "Cargo"
 		
 ,CASE persona.activo
 			
@@ -146,14 +146,13 @@ INNER JOIN compania
 	
 ON proveedor.id_compania = compania.id_compania
 	
-WHERE proveedor.id_proveedor = INULL(@id_proveedor,proveedor.id_proveedor)
+WHERE proveedor.id_proveedor = IFNULL(@id_proveedor,proveedor.id_proveedor)
 	
 and proveedor.cedula = IFNULL(@cedula,proveedor.cedula)
 	
 and proveedor.id_compania = IFNULL(@id_compania,proveedor.id_compania)
 	
-and proveedor.cargo LIKE CONCAT('"' + IFNULL(@cargo,proveedor.cargo) + '"');
-
+and proveedor.cargo LIKE CONCAT('"', IFNULL(@cargo,proveedor.cargo), '"');
 
 END//
 

@@ -34,7 +34,7 @@ namespace Datos
             else
             {
                 c.getConexion().conexionMySQL.Open();
-                string sql = "CALL `proyectofinal`.`sp_cliente`(null, null);";
+                string sql = "CALL `proyectofinal`.`sp_cliente`(@id_cliente,@cedula);";
                 MySqlCommand cmd = new MySqlCommand(sql, c.getConexion().conexionMySQL);
                 cmd.Parameters.AddWithValue("@id_cliente", SqlDbType.Int).Value = (object)id_cliente ?? DBNull.Value;
                 cmd.Parameters.AddWithValue("@cedula", SqlDbType.Int).Value = (object)cedula ?? DBNull.Value;
@@ -123,7 +123,7 @@ namespace Datos
                 }
                 catch (SqlException ex)
                 {
-                    System.Console.Write(ex.Message);
+                    Console.Write(ex.Message);
                 }
                 finally
                 {
@@ -143,7 +143,7 @@ namespace Datos
                 }
                 catch (MySqlException ex)
                 {
-                    System.Console.Write(ex.Message);
+                    Console.Write(ex.Message);
                 }
                 finally
                 {

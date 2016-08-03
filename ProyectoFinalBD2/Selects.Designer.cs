@@ -44,7 +44,7 @@ namespace ProyectoFinalBD2
             this.dgvSelects.AllowUserToAddRows = false;
             this.dgvSelects.AllowUserToDeleteRows = false;
             this.dgvSelects.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvSelects.Location = new System.Drawing.Point(11, 154);
+            this.dgvSelects.Location = new System.Drawing.Point(11, 80);
             this.dgvSelects.Margin = new System.Windows.Forms.Padding(2);
             this.dgvSelects.MultiSelect = false;
             this.dgvSelects.Name = "dgvSelects";
@@ -52,12 +52,12 @@ namespace ProyectoFinalBD2
             this.dgvSelects.RowTemplate.Height = 24;
             this.dgvSelects.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvSelects.ShowEditingIcon = false;
-            this.dgvSelects.Size = new System.Drawing.Size(741, 294);
+            this.dgvSelects.Size = new System.Drawing.Size(683, 368);
             this.dgvSelects.TabIndex = 0;
             // 
             // btnClientes
             // 
-            this.btnClientes.Location = new System.Drawing.Point(74, 41);
+            this.btnClientes.Location = new System.Drawing.Point(15, 39);
             this.btnClientes.Margin = new System.Windows.Forms.Padding(2);
             this.btnClientes.Name = "btnClientes";
             this.btnClientes.Size = new System.Drawing.Size(92, 37);
@@ -68,7 +68,7 @@ namespace ProyectoFinalBD2
             // 
             // btnProveedor
             // 
-            this.btnProveedor.Location = new System.Drawing.Point(276, 41);
+            this.btnProveedor.Location = new System.Drawing.Point(111, 39);
             this.btnProveedor.Margin = new System.Windows.Forms.Padding(2);
             this.btnProveedor.Name = "btnProveedor";
             this.btnProveedor.Size = new System.Drawing.Size(92, 37);
@@ -79,7 +79,7 @@ namespace ProyectoFinalBD2
             // 
             // btnUsuarios
             // 
-            this.btnUsuarios.Location = new System.Drawing.Point(434, 41);
+            this.btnUsuarios.Location = new System.Drawing.Point(207, 39);
             this.btnUsuarios.Margin = new System.Windows.Forms.Padding(2);
             this.btnUsuarios.Name = "btnUsuarios";
             this.btnUsuarios.Size = new System.Drawing.Size(111, 37);
@@ -95,16 +95,16 @@ namespace ProyectoFinalBD2
             this.cbMotor.Items.AddRange(new object[] {
             "SQL Server",
             "MySQL"});
-            this.cbMotor.Location = new System.Drawing.Point(140, 126);
+            this.cbMotor.Location = new System.Drawing.Point(139, 6);
             this.cbMotor.Margin = new System.Windows.Forms.Padding(2);
             this.cbMotor.Name = "cbMotor";
-            this.cbMotor.Size = new System.Drawing.Size(92, 21);
+            this.cbMotor.Size = new System.Drawing.Size(138, 21);
             this.cbMotor.TabIndex = 4;
             // 
             // lblMotor
             // 
             this.lblMotor.AutoSize = true;
-            this.lblMotor.Location = new System.Drawing.Point(13, 129);
+            this.lblMotor.Location = new System.Drawing.Point(12, 9);
             this.lblMotor.Name = "lblMotor";
             this.lblMotor.Size = new System.Drawing.Size(122, 13);
             this.lblMotor.TabIndex = 5;
@@ -114,7 +114,7 @@ namespace ProyectoFinalBD2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(763, 459);
+            this.ClientSize = new System.Drawing.Size(705, 459);
             this.Controls.Add(this.lblMotor);
             this.Controls.Add(this.cbMotor);
             this.Controls.Add(this.btnUsuarios);
