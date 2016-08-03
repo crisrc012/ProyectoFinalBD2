@@ -85,7 +85,7 @@ namespace Datos
                 }
                 catch (MySqlException ex)
                 {
-                    System.Console.Write(ex.Message);
+                    Console.Write(ex.Message);
                 }
                 finally
                 {
