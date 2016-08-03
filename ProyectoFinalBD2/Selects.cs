@@ -32,6 +32,7 @@ namespace ProyectoFinalBD2
         private void mostrarClientes()
         {
             Text = "Mostrando Clientes";
+            gbClientes.Visible = true;
             if (cbMotor.SelectedItem == null)
             {
                 MessageBox.Show(this, "Seleccione un motor de base de datos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -57,6 +58,7 @@ namespace ProyectoFinalBD2
         private void mostrarProveedores()
         { 
             Text = "Mostrando Proveedores";
+            gbClientes.Visible = false;
             if (cbMotor.SelectedItem == null)
             {
                 MessageBox.Show(this, "Seleccione un motor de base de datos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -82,6 +84,7 @@ namespace ProyectoFinalBD2
         private void mostrarUsuarios()
         {
             Text = "Mostrando Usuarios";
+            gbClientes.Visible = false;
             if (cbMotor.SelectedItem == null)
             {
                 MessageBox.Show(this, "Seleccione un motor de base de datos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
