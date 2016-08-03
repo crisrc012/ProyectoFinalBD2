@@ -173,6 +173,7 @@
             this.Controls.Add(this.lblNombre);
             this.Controls.Add(this.lblcedula);
             this.Name = "Modificar_Cliente";
+            this.ShowIcon = false;
             this.Text = "Modificar Cliente";
             this.Load += new System.EventHandler(this.Modificar_Cliente_Load);
             this.ResumeLayout(false);

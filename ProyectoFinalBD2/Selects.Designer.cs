@@ -159,6 +159,7 @@ namespace ProyectoFinalBD2
             this.Controls.Add(this.dgvSelects);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Selects";
+            this.ShowIcon = false;
             this.Text = "Selects";
             ((System.ComponentModel.ISupportInitialize)(this.dgvSelects)).EndInit();
             this.gbClientes.ResumeLayout(false);

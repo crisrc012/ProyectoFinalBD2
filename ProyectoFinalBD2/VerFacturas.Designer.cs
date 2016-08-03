@@ -53,6 +53,7 @@
             this.ClientSize = new System.Drawing.Size(520, 261);
             this.Controls.Add(this.dGV);
             this.Name = "VerFacturas";
+            this.ShowIcon = false;
             this.Text = "Mostrando facturas";
             this.Load += new System.EventHandler(this.VerFacturas_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dGV)).EndInit();
