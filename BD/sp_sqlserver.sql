@@ -166,6 +166,12 @@ BEGIN
 			INSERT INTO [proyectofinal].[dbo].[persona]
 			(cedula,activo) VALUES (@cedula,1);
 		END
+		ELSE
+		BEGIN
+			UPDATE [proyectofinal].[dbo].[persona]
+			SET [proyectofinal].[dbo].[persona].[activo] = 1
+			WHERE [proyectofinal].[dbo].[persona].[cedula] = @cedula;
+		END
 	END
 END
 

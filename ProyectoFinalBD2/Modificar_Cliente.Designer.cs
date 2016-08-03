@@ -124,7 +124,7 @@
             // btnModificar
             // 
             this.btnModificar.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnModificar.Location = new System.Drawing.Point(245, 327);
+            this.btnModificar.Location = new System.Drawing.Point(245, 335);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(134, 46);
             this.btnModificar.TabIndex = 9;
@@ -136,7 +136,7 @@
             // 
             this.lblMotor.AutoSize = true;
             this.lblMotor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMotor.Location = new System.Drawing.Point(38, 273);
+            this.lblMotor.Location = new System.Drawing.Point(38, 282);
             this.lblMotor.Name = "lblMotor";
             this.lblMotor.Size = new System.Drawing.Size(50, 20);
             this.lblMotor.TabIndex = 10;
@@ -149,7 +149,7 @@
             this.cbMotor.Items.AddRange(new object[] {
             "SQL Server",
             "MySQL"});
-            this.cbMotor.Location = new System.Drawing.Point(147, 275);
+            this.cbMotor.Location = new System.Drawing.Point(147, 284);
             this.cbMotor.Name = "cbMotor";
             this.cbMotor.Size = new System.Drawing.Size(232, 21);
             this.cbMotor.TabIndex = 11;
@@ -159,7 +159,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(502, 385);
+            this.ClientSize = new System.Drawing.Size(502, 415);
             this.Controls.Add(this.cbMotor);
             this.Controls.Add(this.lblMotor);
             this.Controls.Add(this.btnModificar);

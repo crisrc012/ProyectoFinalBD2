@@ -32,13 +32,30 @@ namespace ProyectoFinalBD2
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            Clientes c = new Clientes();
-            c.cedula = int.Parse(txtCedula.Text);
-            c.nombre = txtNombre.Text;
-            c.apellido1 = txtApellido1.Text;
-            c.apellido2 = txtApellido2.Text;
-            Clientes_lg clg = new Clientes_lg(mysql);
-            clg.Update(c);
+            try {
+                Clientes c = new Clientes();
+                c.cedula = int.Parse(txtCedula.Text);
+                c.nombre = txtNombre.Text;
+                c.apellido1 = txtApellido1.Text;
+                c.apellido2 = txtApellido2.Text;
+                Clientes_lg clg = new Clientes_lg(mysql);
+                clg.Update(c);
+
+                MessageBox.Show(this,
+                        "Cliente modificado correctamente",
+                        "Correcto",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Information);
+
+                txtCedula.Text = " ";
+                txtNombre.Text = " ";
+                txtApellido1.Text = " ";
+                txtApellido2.Text = " ";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
