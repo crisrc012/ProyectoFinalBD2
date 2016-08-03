@@ -23,12 +23,17 @@ namespace Datos
             if (!mysql)
             {
                 c.getConexion().conexionMSSQL.Open();
-                string sql = "exec sp_usuarios @id_usuarios,@cedula,@id_rol,@username;";
+                string sql = 
+                    "EXEC sp_usuarios @id_usuarios,@cedula,@id_rol,@username;";
                 SqlCommand cmd = new SqlCommand(sql, c.getConexion().conexionMSSQL);
-                cmd.Parameters.Add("@id_usuarios", SqlDbType.Int).Value = (object)id_usuarios ?? DBNull.Value;
-                cmd.Parameters.Add("@cedula", SqlDbType.Int).Value = (object)cedula ?? DBNull.Value;
-                cmd.Parameters.Add("@id_rol", SqlDbType.Int).Value = (object)id_rol ?? DBNull.Value;
-                cmd.Parameters.Add("@username", SqlDbType.Int).Value = (object)username ?? DBNull.Value;
+                cmd.Parameters.Add("@id_usuarios", SqlDbType.Int).Value = 
+                    (object)id_usuarios ?? DBNull.Value;
+                cmd.Parameters.Add("@cedula", SqlDbType.Int).Value = 
+                    (object)cedula ?? DBNull.Value;
+                cmd.Parameters.Add("@id_rol", SqlDbType.Int).Value = 
+                    (object)id_rol ?? DBNull.Value;
+                cmd.Parameters.Add("@username", SqlDbType.Int).Value = 
+                    (object)username ?? DBNull.Value;
                 cmd.Prepare();
                 SqlDataAdapter adapter = new SqlDataAdapter(cmd);
                 adapter.Fill(datos);
@@ -36,12 +41,18 @@ namespace Datos
             else
             {
                 c.getConexion().conexionMySQL.Open();
-                string sql = "CALL `proyectofinal`.`sp_usuarios`(@id_usuarios,@cedula,@id_rol,@username);";
-                MySqlCommand cmd = new MySqlCommand(sql, c.getConexion().conexionMySQL);
-                cmd.Parameters.AddWithValue("@id_usuarios", SqlDbType.Int).Value = (object)id_usuarios ?? DBNull.Value;
-                cmd.Parameters.AddWithValue("@cedula", SqlDbType.Int).Value = (object)cedula ?? DBNull.Value;
-                cmd.Parameters.AddWithValue("@id_rol", SqlDbType.Int).Value = (object)id_rol ?? DBNull.Value;
-                cmd.Parameters.AddWithValue("@username", SqlDbType.Int).Value = (object)username ?? DBNull.Value;
+                string sql = 
+                    "CALL `proyectofinal`.`sp_usuarios`(@id_usuarios,@cedula,@id_rol,@username);";
+                MySqlCommand cmd = 
+                    new MySqlCommand(sql, c.getConexion().conexionMySQL);
+                cmd.Parameters.AddWithValue("@id_usuarios", SqlDbType.Int).Value = 
+                    (object)id_usuarios ?? DBNull.Value;
+                cmd.Parameters.AddWithValue("@cedula", SqlDbType.Int).Value = 
+                    (object)cedula ?? DBNull.Value;
+                cmd.Parameters.AddWithValue("@id_rol", SqlDbType.Int).Value = 
+                    (object)id_rol ?? DBNull.Value;
+                cmd.Parameters.AddWithValue("@username", SqlDbType.Int).Value = 
+                    (object)username ?? DBNull.Value;
                 cmd.Prepare();
                 MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
                 adapter.Fill(datos);
@@ -54,12 +65,16 @@ namespace Datos
             if (!mysql)
             {
                 c.getConexion().conexionMSSQL.Open();
-                SqlCommand cmd = new SqlCommand(null, c.getConexion().conexionMSSQL);
-                cmd.CommandText = sql;
-                cmd.Parameters.Add("@cedula", SqlDbType.Int).Value = (object)u.cedula ?? DBNull.Value;
-                cmd.Parameters.Add("@id_rol", SqlDbType.Int).Value = (object)u.id_rol ?? DBNull.Value;
-                cmd.Parameters.Add("@username", SqlDbType.VarChar,10).Value = (object)u.username ?? DBNull.Value;
-                cmd.Parameters.Add("@contraseña", SqlDbType.VarChar,15).Value = (object)u.contraseña ?? DBNull.Value;
+                SqlCommand cmd = 
+                    new SqlCommand(sql, c.getConexion().conexionMSSQL);
+                cmd.Parameters.Add("@cedula", SqlDbType.Int).Value = 
+                    (object)u.cedula ?? DBNull.Value;
+                cmd.Parameters.Add("@id_rol", SqlDbType.Int).Value = 
+                    (object)u.id_rol ?? DBNull.Value;
+                cmd.Parameters.Add("@username", SqlDbType.VarChar,10).Value = 
+                    (object)u.username ?? DBNull.Value;
+                cmd.Parameters.Add("@contraseña", SqlDbType.VarChar,15).Value = 
+                    (object)u.contraseña ?? DBNull.Value;
                 cmd.Prepare();
                 try
                 {
@@ -77,12 +92,16 @@ namespace Datos
             else
             {
                 c.getConexion().conexionMySQL.Open();
-                MySqlCommand cmd = new MySqlCommand(null, c.getConexion().conexionMySQL);
-                cmd.CommandText = sql;
-                cmd.Parameters.AddWithValue("@cedula", SqlDbType.Int).Value = u.cedula;
-                cmd.Parameters.AddWithValue("@id_rol", SqlDbType.Int).Value = u.id_rol;
-                cmd.Parameters.AddWithValue("@username", SqlDbType.VarChar).Value = u.username;
-                cmd.Parameters.AddWithValue("@contraseña", SqlDbType.VarChar).Value = u.contraseña;
+                MySqlCommand cmd = 
+                    new MySqlCommand(sql, c.getConexion().conexionMySQL);
+                cmd.Parameters.AddWithValue("@cedula", SqlDbType.Int).Value =
+                    (object)u.cedula ?? DBNull.Value;
+                cmd.Parameters.AddWithValue("@id_rol", SqlDbType.Int).Value =
+                    (object)u.id_rol ?? DBNull.Value;
+                cmd.Parameters.AddWithValue("@username", SqlDbType.VarChar).Value =
+                    (object)u.username ?? DBNull.Value;
+                cmd.Parameters.AddWithValue("@contraseña", SqlDbType.VarChar).Value =
+                    (object)u.contraseña ?? DBNull.Value;
                 cmd.Prepare();
                 try
                 {
@@ -119,8 +138,8 @@ namespace Datos
             if (!mysql)
             {
                 c.getConexion().conexionMSSQL.Open();
-                SqlCommand cmd = new SqlCommand(null, c.getConexion().conexionMSSQL);
-                cmd.CommandText = sql;
+                SqlCommand cmd = 
+                    new SqlCommand(sql, c.getConexion().conexionMSSQL);
                 cmd.Parameters.Add("@id_usuarios", SqlDbType.Int).Value = id;
                 cmd.Prepare();
                 try
@@ -139,8 +158,8 @@ namespace Datos
             else
             {
                 c.getConexion().conexionMySQL.Open();
-                MySqlCommand cmd = new MySqlCommand(null, c.getConexion().conexionMySQL);
-                cmd.CommandText = sql;
+                MySqlCommand cmd = 
+                    new MySqlCommand(sql, c.getConexion().conexionMySQL);
                 cmd.Parameters.AddWithValue("@id_usuarios", SqlDbType.Int).Value = id;
                 cmd.Prepare();
                 try

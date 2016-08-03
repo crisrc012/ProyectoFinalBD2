@@ -54,7 +54,8 @@ namespace ProyectoFinalBD2
             }
             else
             {
-                MessageBox.Show("Cédula inválida.",
+                MessageBox.Show(this,
+                    "Cédula inválida.",
                     "Error",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
