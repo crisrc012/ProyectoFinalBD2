@@ -37,11 +37,14 @@ BEGIN
 				WHEN 1 THEN 'Sí'
 				ELSE NULL
 			END AS Activo
+			,[proyectofinal].[dbo].[telefono].[numero] AS "Telefono"
 	FROM [proyectofinal].[dbo].[usuarios]
 	INNER JOIN [proyectofinal].[dbo].[persona]
 	ON [proyectofinal].[dbo].[usuarios].[cedula] = [proyectofinal].[dbo].[persona].[cedula]
 	INNER JOIN [proyectofinal].[dbo].[rol]
 	ON [proyectofinal].[dbo].[usuarios].[id_rol] = [proyectofinal].[dbo].[rol].[id_rol]
+	INNER JOIN [proyectofinal].[dbo].[telefono]
+	ON [proyectofinal].[dbo].[telefono].[cedula]= [proyectofinal].[dbo].[usuarios].[cedula]
 	WHERE [proyectofinal].[dbo].[usuarios].[id_usuarios] = ISNULL(@id_usuarios,[proyectofinal].[dbo].[usuarios].[id_usuarios])
 	and [proyectofinal].[dbo].[usuarios].[cedula] = ISNULL(@cedula,[proyectofinal].[dbo].[usuarios].[cedula])
 	and [proyectofinal].[dbo].[usuarios].[id_rol] = ISNULL(@id_rol,[proyectofinal].[dbo].[usuarios].[id_rol])
@@ -68,17 +71,19 @@ BEGIN
 			WHEN 1 THEN 'Sí'
 			ELSE NULL
 		END AS Activo
+		,[proyectofinal].[dbo].[telefono].[numero] AS "Telefono"
 	FROM [proyectofinal].[dbo].[proveedor]
 	INNER JOIN [proyectofinal].[dbo].[persona]
 	ON [proyectofinal].[dbo].[proveedor].[cedula] = [proyectofinal].[dbo].[persona].[cedula]
 	INNER JOIN [proyectofinal].[dbo].[compania]
 	ON [proyectofinal].[dbo].[proveedor].[id_compania] = [proyectofinal].[dbo].[compania].[id_compania]
+	INNER JOIN [proyectofinal].[dbo].[telefono]
+	ON [proyectofinal].[dbo].[telefono].[cedula]= [proyectofinal].[dbo].[proveedor].[cedula]
 	WHERE [proyectofinal].[dbo].[proveedor].[id_proveedor] = ISNULL(@id_proveedor,[proyectofinal].[dbo].[proveedor].[id_proveedor])
 	and [proyectofinal].[dbo].[proveedor].[cedula] = ISNULL(@cedula,[proyectofinal].[dbo].[proveedor].[cedula])
 	and [proyectofinal].[dbo].[proveedor].[id_compania] = ISNULL(@id_compania,[proyectofinal].[dbo].[proveedor].[id_compania])
 	and [proyectofinal].[dbo].[proveedor].[cargo] LIKE '%' + ISNULL(@cargo,[proyectofinal].[dbo].[proveedor].[cargo]) + '%';
 END;
-
 --EXEC sp_proveedor null,null,null,null
 
 -- Leer información de cliente
@@ -97,11 +102,14 @@ BEGIN
 			WHEN 1 THEN 'Sí'
 			ELSE NULL
 		END AS Activo
+		,[proyectofinal].[dbo].[telefono].[numero] AS "Telefono"
 	FROM [proyectofinal].[dbo].[cliente]
 	INNER JOIN [proyectofinal].[dbo].[persona]
 	ON [proyectofinal].[dbo].[cliente].[cedula] = [proyectofinal].[dbo].[persona].[cedula]
 	INNER JOIN [proyectofinal].[dbo].[PADRON_COMPLETO]
 	ON [proyectofinal].[dbo].[PADRON_COMPLETO].[Cedula] = [proyectofinal].[dbo].[persona].[cedula]
+	INNER JOIN [proyectofinal].[dbo].[telefono]
+	ON [proyectofinal].[dbo].[telefono].[cedula]= [proyectofinal].[dbo].[cliente].[cedula]
 	WHERE [proyectofinal].[dbo].[cliente].[id_cliente] = ISNULL(@id_cliente,[proyectofinal].[dbo].[cliente].[id_cliente])
 	and [proyectofinal].[dbo].[cliente].[cedula] = ISNULL(@cedula,[proyectofinal].[dbo].[cliente].[cedula]);
 END;
