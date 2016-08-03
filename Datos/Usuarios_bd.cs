@@ -91,6 +91,7 @@ namespace Datos
             }
             else
             {
+                sql = "CALL `proyectofinal`.`sp_insert_usuarios`(@cedula,@id_rol,@username,@contraseña);";
                 c.getConexion().conexionMySQL.Open();
                 MySqlCommand cmd = 
                     new MySqlCommand(sql, c.getConexion().conexionMySQL);
@@ -106,6 +107,7 @@ namespace Datos
                 try
                 {
                     cmd.ExecuteNonQuery();
+     
                 }
                 catch (MySqlException ex)
                 {

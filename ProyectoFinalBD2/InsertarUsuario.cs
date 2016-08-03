@@ -16,7 +16,6 @@ namespace ProyectoFinalBD2
 {
     public partial class InsertarUsuario : Form
     {
-        public Usuarios_lg usersbd = new Usuarios_lg();
         public InsertarUsuario()
         {
             InitializeComponent();
@@ -27,6 +26,7 @@ namespace ProyectoFinalBD2
         {
             try
             {
+                Usuarios_lg usersbd = null;
                 if (cmMotores.SelectedItem == null)
                 {
                     MessageBox.Show(this,
@@ -39,12 +39,19 @@ namespace ProyectoFinalBD2
                 // ejecutando segun motor
                 if (cmMotores.SelectedItem.ToString() == "SQL")
                 {
+                    usersbd = new Usuarios_lg();
                     Usuarios nuevo = new Usuarios();
                     nuevo.cedula = int.Parse(txtCedula.Text);
                     nuevo.contraseña = txtContrasena.Text;
                     nuevo.id_rol = 1;
                     nuevo.username = txtUsername.Text;
                     usersbd.Insert(nuevo);
+
+                    MessageBox.Show(this,
+                        "Usuario insertado correctamente",
+                        "Correcto",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Information);
 
                     txtCedula.Text = "";
                     txtContrasena.Text = "";
@@ -53,6 +60,7 @@ namespace ProyectoFinalBD2
                 }
                 else
                 {
+                    usersbd = new Usuarios_lg(true);
                     Usuarios nuevo = new Usuarios();
                     nuevo.cedula = int.Parse(txtCedula.Text);
                     nuevo.contraseña = txtContrasena.Text;
@@ -62,6 +70,12 @@ namespace ProyectoFinalBD2
                     txtCedula.Text = "";
                     txtContrasena.Text = "";
                     txtUsername.Text = "";
+
+                    MessageBox.Show(this,
+                        "Usuario insertado correctamente",
+                        "Correcto",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Information);
                 }
             }
             catch (Exception eas )
