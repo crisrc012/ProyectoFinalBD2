@@ -96,8 +96,7 @@ namespace Datos
 
         public void Insert(Clientes cl)
         {
-            string sql = "insert into cliente (cedula) "
-                    + "values(@cedula);";
+            string sql = "insert into cliente (cedula) values(@cedula);";
             insert_update(sql, cl);
         }
 

@@ -142,6 +142,7 @@ namespace ProyectoFinalBD2
             this.btnClModificar.TabIndex = 1;
             this.btnClModificar.Text = "Modificar";
             this.btnClModificar.UseVisualStyleBackColor = true;
+            this.btnClModificar.Click += new System.EventHandler(this.btnClModificar_Click);
             // 
             // Selects
             // 

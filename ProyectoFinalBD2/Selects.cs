@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using Logica;
+using Entidades;
 
 namespace ProyectoFinalBD2
 {
@@ -105,6 +106,24 @@ namespace ProyectoFinalBD2
         private void btnUsuarios_Click(object sender, EventArgs e)
         {
             mostrarUsuarios();
+        }
+
+        private void btnClModificar_Click(object sender, EventArgs e)
+        {
+            if (dgvSelects.SelectedRows.Count != 1)
+            {
+                MessageBox.Show(this, "Debe de seleccionar únicamente un cliente", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            Clientes cl = new Clientes();
+            cl.id_cliente = int.Parse(dgvSelects.Rows[dgvSelects.SelectedRows[0].Index].Cells[0].Value.ToString());
+            cl.cedula = int.Parse(dgvSelects.Rows[dgvSelects.SelectedRows[0].Index].Cells[1].Value.ToString());
+            cl.nombre = dgvSelects.Rows[dgvSelects.SelectedRows[0].Index].Cells[2].Value.ToString();
+            cl.apellido1 = dgvSelects.Rows[dgvSelects.SelectedRows[0].Index].Cells[3].Value.ToString();
+            cl.apellido2 = dgvSelects.Rows[dgvSelects.SelectedRows[0].Index].Cells[4].Value.ToString();
+            Modificar_Cliente mdf = new Modificar_Cliente(cl);
+            mdf.MdiParent = MdiParent;
+            mdf.Show();
         }
     }
 }

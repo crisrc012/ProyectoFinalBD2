@@ -8,9 +8,16 @@ namespace ProyectoFinalBD2
 {
     public partial class Modificar_Cliente : Form
     {
-        public Modificar_Cliente()
+        public Modificar_Cliente(Clientes cl = null)
         {
             InitializeComponent();
+            if (cl != null)
+            {
+                txtCedula.Text = cl.cedula.ToString();
+                txtNombre.Text = cl.nombre;
+                txtApellido1.Text = cl.apellido1;
+                txtApellido2.Text = cl.apellido2;
+            }
         }
 
         private void btnModificar_Click(object sender, EventArgs e)
@@ -26,9 +33,9 @@ namespace ProyectoFinalBD2
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            if (txtCedula.Text != "")
+            if (txtCedula.Text != string.Empty)
             {
-                Logica.Clientes_lg clg = new Logica.Clientes_lg();
+                Clientes_lg clg = new Clientes_lg();
                 DataTable dt = clg.Select(null, int.Parse(txtCedula.Text));
                 if (dt.Rows.Count > 0)
                 {
@@ -39,7 +46,7 @@ namespace ProyectoFinalBD2
                 else
                 {
                     MessageBox.Show(this,
-                    "No existe nungun cliente con ese numero de cedula",
+                    "No existe ningún cliente con ese número de cédula.",
                     "Error",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
@@ -47,12 +54,11 @@ namespace ProyectoFinalBD2
             }
             else
             {
-                MessageBox.Show("no hay texto del que se pueda buscar","ERROR",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                MessageBox.Show("Cédula inválida.",
+                    "Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
             }
-            txtCedula.Text = " ";
-            txtNombre.Text = " ";
-            txtApellido1.Text = " ";
-            txtApellido2.Text = " ";
         }
     }
 }
